@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title> BLOG POST </title>
+        <link rel="stylesheet" href="reset.css" type="text/css" />
+        <link rel="stylesheet" href="webstyle.css" type="text/css" />
+    </head>
+
+    <script>
+        function  clickclear(target){
+            if(confirm("Would you like to clear the Blog Entry?")){
+                document.getElementById("blog_entry").reset();
+            } else  {
+                alert("You chose not to clear blog entry!");
+            }
+        };
+
+        function clicksubmit(target){
+            if(document.getElementById("blogtitle").value.length == 0 || document.getElementById("txtAre").value.length == 0 ){
+                event.preventDefault();
+                if(document.getElementById("blogtitle").value.length == 0 && document.getElementById("txtAre").value.length == 0 ){
+                    document.getElementById('blogtitle').style.boxShadow = "0 0 0 4px #91faff";
+                    document.getElementById('txtAre').style.boxShadow = "0 0 0 4px #91faff";
+                    alert("Empty Entry!\r\nAdd title and Blog details!");
+                } else if (document.getElementById("blogtitle").value.length == 0){
+                    document.getElementById('blogtitle').style.borderColor = "red";
+                    alert("Empty Entry!\r\nAdd title!");
+                } else {
+                    document.getElementById('txtAre').style.borderColor = "red";
+                    alert("Empty Entry!\r\nAdd Blog details!");
+                }
+            }
+        };
+
+    </script>
+
+    <body>
+        
+        <header>
+            <hgroup>
+                <h3> BLOG ENTRY </h3>
+            </hgroup>
+        </header>
+
+        <nav class="links">
+            <ul class="centerbanner">
+                <li><a href="index.php"> HOME </a></li>
+            </ul>
+        </nav>
+
+
+        <div class="blogo"> 
+            <form id="blog_entry" class="blog" name="addE" method="POST"  action="addentry.php"> 
+                    <br>  
+                        <div id="highlight1">
+                            <input type="text" name="blogtitle" id="blogtitle" class="bgtitle" placeholder="Enter Blog Title here!">
+                        </div>
+                        <br>
+                        <div id="highlight2">
+                        ​   <textarea name="txtAre" id="txtAre" rows="20" cols="150" placeholder="Enter Blog details here!"></textarea>
+                        </div>
+                        <div class="button">
+                            <button type="submit" id="addPost" name="submit" onClick="javascript:clicksubmit(this);">Add Entry</button>
+                            <button type="button" onClick="javascript:clickclear(this);">Clear Entry</button>
+                        </div>
+            </form>
+               
+        </div>
+
+        <footer>  
+            <nav class="links"> 
+                <ul>
+                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> AbandonedAccount </a></li>
+                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> AbandonedAccount2 </a></li>
+                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> Abandoned3 </a></li>
+                </ul>  
+            </nav>
+            <i> Copyright © 2020 Annelyn Mc Cormick</i>
+            <li><i> Background images © Re°</i></li>
+        </footer>
+
+    </body>
+</html>

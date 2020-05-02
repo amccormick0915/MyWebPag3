@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"name="viewport" content="width=device-width, initial-scale=1">
+    <title> LOG IN </title>
+    <link rel="stylesheet" href="reset.css" type="text/css" />
+    <link rel="stylesheet" href="webstyle.css" type="text/css" />
+
+    <script>
+          function clickinnersign(target){
+                location.href='signin.php';
+            };
+    </script>
+
+</head>
+    <body>
+
+        <header>
+            <hgroup>
+                <h3> LOG-IN PAGE </h3>
+            </hgroup>
+        </header>
+            <nav class="links">
+                <ul class="centerbanner">
+                    <li><a href="index.php"> HOME </a></li>
+                </ul>
+            </nav>
+    <br>
+
+    <div class="centerlogin">
+        <aside class="mainaside">
+            <div class="buttons">
+
+                    <form action="login.php" method="POST">
+                            <label>Enter e-mail</label>
+                        <br>    
+                            <input  type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email"></input>
+                        <br>
+                            <label>Enter password</label>
+                        <br>
+                            <input type="password" pattern=".{6,}" name="password" required></input>
+
+                        <div class="login">
+                            <button id="lg" name="submit" >LOGIN</button>
+                        </div>
+                    </form>
+
+            </div>
+        </aside>
+    </div>
+
+        <footer>  
+            <nav class="links"> 
+                <ul>
+                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> AbandonedAccount </a></li>
+                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> AbandonedAccount2 </a></li>
+                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> Abandoned3 </a></li>
+                </ul>  
+            </nav>
+            <i> Copyright © 2020 Annelyn Mc Cormick</i>
+            <li><i> Background images © Re°</i></li>
+        </footer>
+
+    </body>
+</html>

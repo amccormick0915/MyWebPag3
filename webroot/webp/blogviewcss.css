@@ -1,0 +1,241 @@
+html.blogview{
+    display: block;
+    background: url("img/blogwall.png");
+    background-position: -4em -3em ;
+    background-repeat: no-repeat;
+}
+div.blogo{
+    background: linear-gradient(to top left, #fffaf7bd 20%, #fffef79c, #fdfbf9ab 50%, #f4f8fadc);
+}
+article.blog_article h4{
+    font-family: hw;
+    text-align: center;
+    text-shadow: 1px 2px rgb(248, 248, 248);
+    font-size: 2.5em;
+    margin: .1em 0;
+    color: rgb(128, 15, 0);
+    padding: 0 .8em;
+}
+article.blog_article {
+    background: linear-gradient(to top left, #fddfcd8f 20%, #f0ebd38e, #f0e9e181 50%, #9ecce781);
+    border: none;
+}
+div.commentsection{
+    margin: .3em .5em 0em 5em;
+    padding: .3em 0 .3em 0;
+    background: linear-gradient(to bottom right, #fddfcd8f 20%, #f0ebd38e, #f0e9e181 50%, #9ecce781);   
+    border-radius: .3em;
+}
+div.commentsection h1{
+    font-family: coffee;
+    color: rgba(37, 13, 13, 0.842);
+    text-shadow: 1px 1px rgba(63, 27, 27, 0.568);
+    padding: .5em 0 0 1em;
+    font-size: 1.5em;
+    box-shadow: 0px 3px rgba(182, 116, 96, 0.623);
+    border-radius: .2em;
+}
+section.blog_article {
+    margin: .1em .5em;
+    padding: .5em;
+}
+section.blog_article p{
+    color: rgba(43, 15, 15, 0.781);
+    text-shadow: .5px  1px #e78080be;
+    padding: .5em;
+    margin: .2em;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 1em;
+    border-radius: 0em;
+}
+section.blog_article div.comm_deet{
+    display: inline-flexbox;  
+    border-radius: .5em;
+    padding: .3em;
+}
+div.comm_deet p{  
+    border-radius: .5em;
+    background-color: rgba(255, 255, 255, 0.815);
+}
+div.comm_deets p{  
+    border-radius: .5em;
+    position: relative;
+    top: -1em;
+    margin: -1em 0 -1em 0;
+}
+section.blog_article h4{
+    font-family: coffee;
+    text-align: left;
+    text-shadow: 1px 2px rgb(248, 248, 248);
+    font-size: 1.3em;
+    margin: 0 0 -.5em 0; 
+    color: rgb(94, 24, 12);
+    border-radius: 1em;
+    padding: 0 .3em;
+}
+p.usern, p.date{
+    font-size: 1em;
+    padding: 0 .2em;
+}
+p.date{
+    font-family: Digid;
+    color: rgb(77, 22, 22);
+    text-shadow: 1px 1px rgba(50, 150, 175, 0.795);
+    letter-spacing: .04em;
+    font-size: 120%;
+}
+p.usern{
+    font-family: coffee;
+    color: rgb(141, 93, 39);
+    text-shadow: 1px 1px rgb(241, 102, 102);
+    font-size: 1.5em;
+    line-height: 15pt;
+}
+div.deets, div.comm_deets {
+    text-align: right;
+}
+div.indeets {
+    float: left;
+    text-align: left;
+}
+div.deets p, div.comm_deets p{
+    text-align: left;
+    display: inline-block;
+}
+p.blog_p {
+    font-family: song;
+    font-size: 1.6em;
+    font-weight: 700;
+    line-height: 15pt;
+    color: rgb(53, 41, 41);
+    text-shadow: 2px 2px rgb(223, 195, 195);
+    background-color: rgba(255, 255, 255, 0.788);
+    padding: .5em;
+    word-wrap: break-word;
+    margin: .7em 0;
+    border-radius: .2em;
+}
+figcaption.blogcap{
+    top: -2%;
+    color: rgb(90, 58, 28);
+    text-shadow: 1px  1px #ec6d6d9a;
+    background-color: rgba(245, 238, 231, 0.274);
+}
+form, form p{
+    text-align: right;
+}
+form p{
+    color: rgb(128, 53, 30);
+    font-size: .75em;
+    padding: 1em 0em 0em 0em;
+    margin: 0 0 -2.5em 0;
+    font-family: "fipps";
+    text-shadow: 1px 2px rgba(216, 95, 165, 0.829);
+}
+form select option{
+    font-family: coffee;
+    font-size: 1.3em;
+}
+form select{
+    border: 1pt solid rgb(146, 31, 31) ;
+    border-radius: .7em;
+    margin: 1em 0 0 0;
+}
+button{
+    border-radius: 3em;
+    border-color: rgb(248, 195, 186);
+    font-family: simp;
+    font-size: .9em;
+    background-color: rgba(148, 40, 40, 0.829);
+    color: white;
+    margin: 1em 0em 0em 2em;
+    text-shadow:2px 2px #f3536e;
+    box-shadow: 2px 2px rgb(155, 99, 228);
+}
+button.addcommbtn{
+    border-color: rgb(215, 186, 248);
+    background-color: rgba(105, 39, 83, 0.829);
+    padding: .5em 1em .3em 1em;
+    color: white;
+    text-shadow:2px 2px #7b1988;
+    box-shadow: 2px 2px rgb(228, 99, 222); 
+}
+button.removeentry{
+    margin: .5em 0 0 0em;
+}
+button.addcommbtn:hover{
+    background-color: rgb(128, 154, 240);
+    color: white;
+    text-shadow:2px 2px #2e297c;
+    box-shadow: 1px 2px rgb(174, 158, 247);
+}
+button:hover{
+    background-color: rgb(186, 128, 240);
+    color: white;
+    text-shadow:2px 2px #6e4694;
+    box-shadow: 1px 2px rgb(232, 158, 247);
+}
+.blog {
+    float: left;
+    font-size: 1.2em;
+    margin: .7em 0 0 0 ;
+}
+.blog button {
+    padding: .7em .5em .5em .5em;
+}
+aside.blogcomm{
+    text-align: left;
+}
+form.commentform{
+    margin: 2.5em 1em 0 -21em;
+    display: inline-flex;
+}
+div.addcommbtn{
+    margin: -.5em 0 0 5.5em;
+}
+div.addcommbtnrel {
+    position: relative;
+    bottom: 2.8em;
+    right: .6em;
+}
+div.positionright{
+    text-align: right;
+    margin: 0 0 -2em 0;
+}
+div.addcommbtn, div.deletecomm{
+    text-align: left;
+}
+div.deletecomm{
+    float: left;
+    margin: -1.1em 0 -1em -1em;
+}
+div.addcommbtnrel p{
+    color: rgba(31, 8, 85, 0.767);
+    font-size: 1.1em;
+    text-align: right;
+    padding: 1em 0em 0em 0em;
+    margin: .5em 0 -.5em 1.7em;
+    font-family: Digid;
+    text-shadow: 1px 2px rgba(100, 159, 182, 0.74);
+}
+textarea{
+    border: 1pt solid rgb(109, 42, 235);
+    border-radius: 1em;
+    padding: .5em;
+    margin: .5em;
+    resize: none;
+}
+div.blogo{
+    margin: 1em 2em 6em 2em;
+}
+div.noEntryForMonth p{
+    text-align: center;
+    color: rgba(31, 8, 85, 0.767);
+    font-size: 1.5em;
+    margin: 2em;
+    padding: 2em;
+    font-family: Digid;
+    background: linear-gradient(to bottom right, #a4cae08f 20%, #9ea5e781); 
+    border-radius: 1em;
+    text-shadow: 1px 2px rgba(100, 159, 182, 0.74);
+}

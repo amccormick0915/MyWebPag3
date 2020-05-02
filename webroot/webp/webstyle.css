@@ -1,0 +1,301 @@
+button{
+    border-radius: 3em;
+    border-color: rgb(253, 226, 226);
+    font-family: "4B";
+    font-size: 1.5em;
+    background-color: rgb(235, 205, 164);
+    color: white;
+    padding: .2em 1em .2em 1em;
+    margin: 1em 0em 0em 0em;
+    text-shadow:2px 2px #f1b185;
+    box-shadow: 1px 2px white;
+}
+button:hover{
+    background-color: rgb(240, 204, 128);
+    color: white;
+    text-shadow:2px 2px #946546;
+    box-shadow: 1px 2px rgb(247, 158, 158);
+}
+html{
+    padding: 0;
+    display: block;
+    background: url("img/wallpp.png");
+    background-position: -4em -3em ;
+    background-repeat: no-repeat;
+}
+html.hobby{
+    display: block;
+    background: url("img/clumsY.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+body{
+    z-index: 2;
+}
+@font-face{
+    font-family: "4B";
+    src: url("font/04B_30__.ttf");
+    font-size: 1em;
+}
+@font-face{
+    font-family: "hw";
+    src: url("font/Homework.ttf");
+    font-size: 1em;
+}
+@font-face{
+    font-family: "broad";
+    src: url("font/BROADW.ttf");
+    font-size: 1em;
+}
+@font-face{
+    font-family: "fipps";
+    src: url("font/Fipps-Regular.otf");
+    font-size: 1em;
+}
+@font-face{
+    font-family: "coffee";
+    src: url("font/coffee+teademo-Regular.ttf");
+    font-size: 1em;
+}
+@font-face{
+    font-family: "DigiD";
+    src: url("font/DigitalDisco.ttf");
+    font-size: 1em;
+}
+@font-face{
+    font-family: "simp";
+    src: url("font/Simple tfb.ttf");
+    font-size: 1em;
+}
+
+
+/* not yet used 
+
+FONTS WAITING TO BE USED!
+
+*/
+@font-face{
+    font-family: "Ex";
+    src: url("font/Extrude.ttf");
+    font-size: 1em;
+}
+@font-face{
+    font-family: "cellbliss";
+    src: url("font/CelluloidBliss.ttf");
+    font-size: 1em;
+}
+@font-face{
+    font-family: "sunshine";
+    src: url("font/A little sunshine.ttf");
+    font-size: 1em;
+} 
+@font-face{
+    font-family: "medi";
+    src: url("font/medicall.ttf");
+    font-size: 1em;
+}
+@font-face{
+    font-family: "cena";
+    src: url("font/ARCENA.ttf");
+    font-size: 1em;
+}
+@font-face{
+    font-family: "army";
+    src: url("font/BMarmy.ttf");
+    font-size: 1em;
+}
+@font-face{
+    font-family: "vega";
+    src: url("font/vgafix.ofn");
+    font-size: 1em;
+}
+@font-face{
+    font-family: "itck";
+    src: url("font/ITCBLKAD.ttf");
+    font-size: 1em;
+}
+@font-face{
+    font-family: "daisy";
+    src: url("font/paperdaisy-demo.ttf");
+    font-size: 1em;
+}
+@font-face{
+    font-family: "song";
+    src: url("font/Please write me a song.ttf");
+    font-size: 1em;
+}
+
+
+
+/* 
+
+    GENERAL CSS CODE FOR WEBSITE! 
+    
+    
+*/
+nav.links ul li, nav.cv ul li{
+    display: inline-flex;
+    margin: .5em;
+    padding: .6em;
+} 
+nav.links ul li a{
+    display: block;
+    color: rgb(194, 89, 89);
+    text-shadow: 1px 1.2px #f1b185;
+    font-family: serif;
+    font-size: 1.2em;
+}
+nav.links ul li a:hover{
+  color: rgb(42, 44, 44);
+  text-shadow: 1.3px 1.2px #b1a19d;
+}
+header hgroup {
+    margin: .3em;
+    padding: .4em;
+    background-color: rgba(240, 248, 255, 0.61);
+}
+nav.links{
+    background-color: rgba(247, 231, 189, 0.226);
+}
+section{
+    margin: 1em .3em 1em .3em;
+    padding: 3em 1em 2em .7em;
+}
+article{
+    background-color: rgba(255, 255, 255, 0.459);
+    border: 2pt solid rgba(204, 209, 209, 0.295);
+    border-radius: 1em;
+    margin: 1em 0 0 1em;
+    padding: .8em;
+}
+section p{
+    color: rgba(43, 15, 15, 0.781);
+    text-shadow: .5px  1px #e78080be;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: .95em;
+    text-align: justify;
+    margin: 1.2em;
+    padding: 1.4em;
+    background-color: rgba(252, 250, 223, 0.486);
+    border-radius: 3em;
+}
+article h3{
+    position: relative;
+    top: 1.6em;
+    text-align: center;
+    color: rgb(122, 63, 63);
+    font-size: 1.9em;
+    font-family: "broad";
+}
+figure{
+    background-color: rgba(205, 134, 63, 0.199);
+    border-radius: 5em;
+}
+figcaption{
+    font-size: 100%;
+    background-color: rgba(206, 144, 81, 0.274);
+    border-radius: 3em;
+    color: rgb(250, 250, 250);
+    position: relative;
+    padding: .2em;
+    top: -1.3em;
+    width: 17%;
+    text-align: center;
+    left: 41%;
+}
+.centerbanner, hgroup h1,hgroup h3{
+    text-align: center;
+}
+hgroup h1,hgroup h3{
+    font-family: "4B";
+    font-size: 2.2em;
+    color: rgb(122, 63, 63);
+    text-shadow: 2px  2px #f8a8a8be;
+}
+footer i{
+    font-family: "fipps";
+    font-size: .7em;
+}
+div.buttons{
+    background-color: rgba(255, 255, 255, 0.507);
+    border: 2pt solid rgba(92, 104, 104, 0.144);
+    border-radius: 1em;
+    margin: 1em 1em 0em 1em;
+    padding: 1em 1em 1em 1em;
+}
+div.buttons p{
+    text-align: center;
+    color: rgb(128, 66, 30);
+    font-size: .56em;
+    padding: 1em 0em 0em 0em;
+    font-family: "fipps";
+}
+div.centerlogin{
+    text-align: center;
+    margin: 1em;
+}
+input[type="email"],input[type="text"], input[type="password"] {
+    -webkit-appearance: none;
+    border: 3px solid rgba(189, 234, 245, 0.623);
+    box-shadow: 7px 6px rgba(166, 181, 245, 0.589);
+    padding: .7em 1.5em;
+    margin: .6em;
+    border-radius: 5em;
+}
+label{  
+    font-family: serif;
+    font-size: 1.5em;
+    color: rgb(136, 98, 70);
+    text-shadow: 2px  2px #ec6d6d9a;
+}
+form.blog input[type=text] {
+    -webkit-appearance: none;
+    border: 3px solid rgba(57, 35, 184, 0.363);
+    box-shadow: 7px 6px rgba(138, 18, 54, 0.212);
+    width: 60%;
+    border-radius: 5em;
+}
+form.blog textarea {
+    -webkit-appearance: none;
+    padding: 1em;
+    border: 3px solid rgba(57, 35, 184, 0.363);
+    box-shadow: 7px 6px rgba(138, 18, 54, 0.212);
+    border-radius: 1em;
+}
+form.blog, div.form-elem{
+    padding: 1.5em;
+}
+form.blog label{
+    font-size: 2em;
+}
+div.blogo{
+    text-align: center;
+    margin: 1em;
+    background-color: rgba(255, 255, 255, 0.507);
+    border: 2pt solid rgba(92, 104, 104, 0.144);
+    border-radius: 1em;
+    margin: 1em 1em 0em 1em;
+    padding: 0em 1em 1em 1em;
+}
+fieldset, aside.mainaside{
+    text-align: center;
+}
+div.message h1{
+    margin: 1em;
+    font-family: fipps;
+    font-size: .75em;
+    color: rgba(68, 34, 15, 0.849);
+    text-shadow: 1px 1px rgba(253, 124, 204, 0.658);
+    background-color: rgba(188, 236, 248, 0.13);
+}
+img.gif2{
+    height: 27%;
+    width: 27%;
+    border: 1pt solid rgba(255, 78, 13, 0.342);
+    border-radius: 4em;
+    padding: .4em;
+    background-color: rgba(255, 245, 238, 0.616);
+}
+figure.gif{
+    padding: 1em;
+}
