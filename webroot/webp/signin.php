@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
     } else{
         // Prepare a select statement
         $user = $_POST['username'];
-        $sql = "SELECT id FROM users WHERE username = '" . $user . "'";
+        $sql = "SELECT id FROM USERS WHERE username = '" . $user . "'";
         $result =  mysqli_query($conn,$sql);
         $num_rows = mysqli_num_rows($result);
 
