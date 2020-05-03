@@ -51,7 +51,7 @@ while($data_row = mysqli_fetch_array($result)){
     $row[] = $data_row;
 }
 
- echo "test: " . $row[0];
+ echo "test: " . $row[0][0];
 
 // while( $counter < sizeof($row) ){
 //     echo ' test: ' . $row[$counter] ;
