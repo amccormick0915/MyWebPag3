@@ -46,9 +46,11 @@ if( mysqli_num_rows($result) == 0 && ( !isset($_SESSION["loggedin"]) || $_SESSIO
                 alert('No Entries Available! Please add one!'); 
            </script>";
 }
-
+$count = 0;
 while($data_row = mysqli_fetch_array($result)){
-    $rowss[] = $data_row;
+
+    $rowss[$count] = $data_row;
+    $count++;
 }
 $rows[] = date_sort($rowss);
 
