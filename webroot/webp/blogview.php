@@ -19,8 +19,8 @@ if(isset($_POST['reorderbtn'])){
     $date_chosen = $_POST['months'];
 }
 
-if(isset($_POST['Blog0']){
-    if(( isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] == true))){
+if(isset($_POST['Blog0'])){
+    if(( isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] == true)){
     header("index.php");
     }
 } else {
