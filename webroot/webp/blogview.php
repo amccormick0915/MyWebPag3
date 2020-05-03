@@ -54,9 +54,10 @@ while($data_row = mysqli_fetch_array($result)){
 }
 $rows[] = date_sort($rowss);
 
+
 function date_sort($arrayy){
 
-    for($i = 0; $i < sizeof($arrayy); $i++){
+    for($i = 0; $i < sizeof($arrayy) - 1; $i++){
 
         if( strtotime($arrayy[$i]["created"]) < strtotime($arrayy[$i + 1]["created"]) ){
 
