@@ -63,8 +63,8 @@ while($data_row = mysqli_fetch_array($result)){
     $row[] = $data_row;
 }
 
-while( $counter < sizeof($row)){
-
+while( $counter < sizeof($row) ){
+    echo ' test: ' . $row[counter] ;
     $t = strtotime($row['created']);
 
     if(isset($_POST['reorderbtn']) && isset($date_chosen) && $date_chosen!= "All" ){
