@@ -83,7 +83,7 @@ if ( isset( $_POST['logout'] ) ) {
 
         <header>
             <hgroup>
-                <h1> Annelyn Mc Cormick </h1>
+                <h1> Annelyn Mc Cormick TEST</h1>
                 <h3> Student </h3>
             </hgroup>
 
