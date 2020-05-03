@@ -20,7 +20,7 @@ if($num_rows == 1){
     $row = mysqli_fetch_array($result);
     $hashed_password = $row['password'];
     // password_verify(
-    if(trim($password) == $hashed_password){
+    if($password == $hashed_password){
         session_start();
         // Store data in session variables
         $_SESSION["loggedin"] = true;
