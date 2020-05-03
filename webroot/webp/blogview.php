@@ -66,7 +66,7 @@ function date_sort($arrayy){
     return $arrayy;
 }
 
- echo "test: " . $rows[0][0]. $rows[0][1]. $rows[0][2]. $rows[0][3] . $rows[0][4] . $rows[0]["blog_details"];
+ echo "test: " . $rows[0][0]." " . $rows[0][1] ." " . $rows[0][2]." " . $rows[0][3] ." " . $rows[0][4] ." " . $rows[0]["blog_details"]." " ;
 
 while( $counter < sizeof($row) ){
     $row = $rows[$counter];
