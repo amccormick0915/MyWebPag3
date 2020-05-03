@@ -44,7 +44,7 @@ body{
 }
 @font-face{
     font-family: "broad";
-    src: url("font/Broadway.ttf");
+    src: url("font/Broadway.ttf") format('truetype');
     font-size: 1em;
 }
 @font-face{
