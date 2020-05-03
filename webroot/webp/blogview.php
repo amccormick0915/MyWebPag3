@@ -53,7 +53,7 @@ while($data_row = mysqli_fetch_array($result)){
     $count++;
 }
 $rows[] = date_sort($rowss);
-echo "test2: " . $rows . sizeof($rowss);
+echo "test2: " . $rows[0] . "  ". $rows . " " . sizeof($rowss);
 
 function date_sort($arrayy){
 
