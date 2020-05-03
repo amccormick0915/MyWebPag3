@@ -47,6 +47,7 @@ if( mysqli_num_rows($result) == 0 && ( !isset($_SESSION["loggedin"]) || $_SESSIO
            </script>";
 }
 $count = 0;
+
 while($data_row = mysqli_fetch_array($result)){
     echo $data_row[0] . " checking data row and counter is = " . $count . "<br>";
     $rowss[$count] = $data_row;
@@ -58,15 +59,15 @@ echo "test2: " . $rowss[0][0] . " " . sizeof($rowss) . "<br>";
 function date_sort($arrayy){
 
     for($i = 0; $i < sizeof($arrayy) - 1; $i++){
-        echo " for testing ";
-        if( strtotime($arrayy[$i]["created"]) < strtotime($arrayy[$i + 1]["created"]) ){
+        echo " for testing " . strtotime($arrayy[$i]["created"]) ;
+        if( strtotime($arrayy[$i]["created"]) > strtotime($arrayy[$i + 1]["created"]) ){
 
             $temp = $array[$i];
             $arrayy[$i] = $arrayy[$i +1];
             $arrayy[$i +1] = $temp;
         }
     }               
-    echo "<br> other testing: " . $arrayy[0] . " " . $arrayy[0][0] . "<br>";
+    echo "<br> other testing: " .  " " . $arrayy[0][0] . "<br>";
     //                              this one outputs array and this "blog details" 
 }
 
