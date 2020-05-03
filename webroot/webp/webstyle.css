@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Modak&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Modak&display=swap');
 button{
     border-radius: 3em;
     border-color: rgb(253, 226, 226);
@@ -186,7 +186,7 @@ article h3{
     text-align: center;
     color: rgb(122, 63, 63);
     font-size: 1.9em;
-    font-family: "broad";
+    font-family: 'Indie Flower', cursive;
 }
 figure{
     background-color: rgba(205, 134, 63, 0.199);
