@@ -48,12 +48,12 @@ if( mysqli_num_rows($result) == 0 && ( !isset($_SESSION["loggedin"]) || $_SESSIO
 }
 $count = 0;
 while($data_row = mysqli_fetch_array($result)){
-    echo $data_row[0] . " checking data row and counter is = " . $count;
+    echo $data_row[0] . " checking data row and counter is = " . $count . "<br>";
     $rowss[$count] = $data_row;
     $count++;
 }
-$rows[] = date_sort($rowss);
-echo "test2: " . $rows[0]["created"] . "  ". $rows . " " . sizeof($rowss);
+date_sort($rowss);
+echo "test2: " . $rowss[0][0] . " " . sizeof($rowss) . "<br>";
 
 function date_sort($arrayy){
 
@@ -65,13 +65,12 @@ function date_sort($arrayy){
             $arrayy[$i] = $arrayy[$i +1];
             $arrayy[$i +1] = $temp;
         }
-    }
+    }               
     echo "<br> other testing: " . $arrayy[0] . " " . $arrayy[0][0] . "<br>";
-    
-    return $arrayy;
+    //                              this one outputs array and this "blog details" 
 }
 
- echo "test: " . $rowss[0][0]." test " . $rows[0][1] ." " . $rows[0][2]." " . $rows[0][3] ." " . $rows[0][4] ." " . $rows[0]["blog_details"]." " ;
+ echo "<br>test: " . $rowss[0][0]." test " . $rows[0][1] ." " . $rows[0][2]." " . $rows[0][3] ." " . $rows[0][4] ." " . $rows[0]["blog_details"]." " ;
 
 while( $counter < sizeof($row) ){
     $row = $rows[$counter];
