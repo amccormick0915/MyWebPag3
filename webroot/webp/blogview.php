@@ -15,6 +15,19 @@ $date_chosen ="";
 
 $_SESSION["rowo"] = "";
 
+function date_sort($blog_row){
+
+    for($i = 0; $i < $blog_row; $i++ ){
+
+        if($blog_row[$i] > $blog_row[$i + 1] ){
+            $temp = $blog_row[$i];
+            $blog_row[$i] =$blog_row[$i + 1];
+            $blog_row[$i + 1] = $temp;
+        }
+    }
+    return $blog_row;
+}
+
 if(isset($_POST['reorderbtn'])){
     $date_chosen = $_POST['months'];
 }
@@ -27,10 +40,10 @@ if(isset($_POST['Blog0'])){
                 alert('NOT LOGGED IN! Please Log-in first to be able to add an entry!'); 
                 window.location.href='login.html';
            </script>";
+    }
 }
-} 
-
-$sql = "SELECT blog_details, blog_title, id, username, created FROM `blog` ORDER BY `blog`.`created` DESC";
+// ORDER BY `blog`.`created` DESC
+$sql = "SELECT blog_details, blog_title, id, username, created FROM `blog` ";
 
 $result = mysqli_query($conn,$sql);
 
@@ -44,7 +57,7 @@ if( mysqli_num_rows($result) == 0 && ( !isset($_SESSION["loggedin"]) || $_SESSIO
                 alert('No Entries Available! Please add one!'); 
            </script>";
 }
-
+ $result = date_sort($result);
 while($row = mysqli_fetch_array($result)){
 
     $t = strtotime($row['created']);
@@ -90,7 +103,7 @@ while($row = mysqli_fetch_array($result)){
                                 <div class="indeets">
                                     <p class="usern"> <b>Author:</b> ' .$row['username'].'</p>';
 
-        if((isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) && $_SESSION["username"] == "maki"){
+        if((isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) && $_SESSION["username"] == "tester1"){
             $blog = $blog .    '<form method="POST" action="removeentry.php">
                                     <input type="hidden" name="entryID" value="'. $row['id'].'">
                                     <button class="removeentry" type="submit"  onClick="javascript:removeentry(this);">Delete Entry</button>
@@ -179,9 +192,10 @@ $conn->close();
                 <li><a href="index.php"> HOME </a></li>
             </ul>
         </nav>
-
-        <!-- <div class="blogo"> 
-            <div class="blog">
+        
+        
+        <div class="blogo"> 
+        <!-- <div class="blog">
                 <button id="blog" name="Blog" onClick="javascript:addentry(this);"> ADD BLOG ENTRY </button>
             </div> -->
 
