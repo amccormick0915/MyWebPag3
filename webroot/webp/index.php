@@ -131,7 +131,8 @@ if ( isset( $_POST['logout'] ) ) {
                 </section>
 
                     <aside class="picture">
-                        <figure>
+                        <figure>    
+                                                <!-- THE OLD PICTURE! https://i.ibb.co/FgtNL22/face.jpg -->
                             <img class="face" src="https://i.ibb.co/ZzYcw54/IMG-7912.jpg" alt="my face">   
                             <figcaption> <b>A picture of my face</b></figcaption> 
                         </figure>
