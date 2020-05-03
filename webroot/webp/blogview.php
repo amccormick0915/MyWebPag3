@@ -60,7 +60,7 @@ while($row = mysqli_fetch_array($result)){
                                 <div class="indeets">
                                     <p class="usern"> <b>Author:</b> ' .$row['username'].'</p>';
 
-                if((isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) && $_SESSION["username"] == "maki"){
+                if((isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) && $_SESSION["username"] == "tester1"){
                     $blog = $blog .    '<form method="POST" action="removeentry.php">
                                             <input type="hidden" name="entryID" value="'. $row['id'].'">
                                             <button class="removeentry" type="submit"  onClick="javascript:removeentry(this);">Delete Entry</button>
