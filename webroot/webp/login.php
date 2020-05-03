@@ -12,7 +12,7 @@ $password_err = "";
 $mail = $_POST["email"];
 $password = $_POST["password"];
 
-$sql = "SELECT id, username, password FROM users WHERE email = '" . $mail . "'";
+$sql = "SELECT id, username, password FROM USERS WHERE email = '" . $mail . "'";
 $result = mysqli_query($conn, $sql);
 $num_rows = mysqli_num_rows($result);
 
