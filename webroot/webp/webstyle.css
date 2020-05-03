@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Modak&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bungee+Shade|Jua|Viga&display=swap');
 button{
     border-radius: 3em;
     border-color: rgb(253, 226, 226);
-    font-family: "Modak";
+    font-family: 'Bungee Shade', cursive;
     font-size: 1.5em;
     background-color: rgb(235, 205, 164);
     color: white;
@@ -186,7 +186,7 @@ article h3{
     text-align: center;
     color: rgb(122, 63, 63);
     font-size: 1.9em;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Viga', sans-serif;
 }
 figure{
     background-color: rgba(205, 134, 63, 0.199);
@@ -208,7 +208,7 @@ figcaption{
     text-align: center;
 }
 hgroup h1,hgroup h3{
-    font-family: "Modak";
+    font-family: 'Bungee Shade', cursive;
     /* font-size: 2.4em; */
     color: rgb(122, 63, 63);
     /* text-shadow: 2px  2px #f8a8a8be; */
