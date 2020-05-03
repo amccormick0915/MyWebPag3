@@ -22,13 +22,13 @@ if(isset($_POST['reorderbtn'])){
 if(isset($_POST['Blog0'])){
     if(( isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] == true)){
     header("index.php");
-    }
-} else {
+    } else {
     echo  "<script>
                 alert('NOT LOGGED IN! Please Log-in first to be able to add an entry!'); 
                 window.location.href='login.html';
            </script>";
 }
+} 
 
 $sql = "SELECT blog_details, blog_title, id, username, created FROM `blog` ORDER BY `blog`.`created` DESC";
 
