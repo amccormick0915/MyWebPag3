@@ -19,6 +19,15 @@ if(isset($_POST['reorderbtn'])){
     $date_chosen = $_POST['months'];
 }
 
+if(isset($_POST['Blog0']) && ( isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] == true)){
+    header("index.php");
+} else {
+    echo  "<script>
+                alert('NOT LOGGED IN! Please Log-in first to be able to add an entry!'); 
+                window.location.href='login.html';
+           </script>";
+}
+
 $sql = "SELECT blog_details, blog_title, id, username, created FROM `blog` ORDER BY `blog`.`created` DESC";
 
 $result = mysqli_query($conn,$sql);
@@ -172,6 +181,12 @@ $conn->close();
         <div class="blogo"> 
             <div class="blog">
                 <button id="blog" name="Blog" onClick="javascript:addentry(this);"> ADD BLOG ENTRY </button>
+            </div>
+
+            <div class="blog">
+                <form method="POST">
+                    <button id="blog0" name="Blog0"> ADD BLOG ENTRY </button>
+                </form>
             </div>
                     
             <form method="POST" >
