@@ -48,74 +48,89 @@ if( mysqli_num_rows($result) == 0 && ( !isset($_SESSION["loggedin"]) || $_SESSIO
 }
 
 while($data_row = mysqli_fetch_array($result)){
-    $row[] = $data_row;
+    $rowss[] = $data_row;
+}
+$rows[] = $date_sort($rowss);
+function $date_sort($arrayy){
+
+    for($i = 0; $i < sizeof($arrayy); $i++){
+
+        if( strtotime($arrayy[$i]["created"]) < strtotime($arrayy[$i + 1]["created"]) ){
+
+            $temp = $array[$i];
+            $arrayy[$i] = $arrayy[$i +1];
+            $arrayy[$i +1] = $temp;
+        }
+    }
+    return $arrayy;
 }
 
- echo "test: " . $row[0][0]. $row[0][1]. $row[0][2]. $row[0][3] . $row[0][4] . $row[0]["blog_details"];
+ echo "test: " . $rows[0][0]. $rows[0][1]. $rows[0][2]. $rows[0][3] . $rows[0][4] . $rows[0]["blog_details"];
 
-// while( $counter < sizeof($row) ){
-//     echo ' test: ' . $row[$counter] ;
-//     $t = strtotime($row['created']);
+while( $counter < sizeof($row) ){
+    $row = $rows[$counter];
+    $t = strtotime($row['created']);
 
-//     if(isset($_POST['reorderbtn']) && isset($date_chosen) && $date_chosen!= "All" ){
+    if(isset($_POST['reorderbtn']) && isset($date_chosen) && $date_chosen!= "All" ){
 
-//             if(date('F', $t) == $date_chosen ){
+            if(date('F', $t) == $date_chosen ){
                 
-//                 $blog = $blog . '<br><article class="blog_article">
-//                             <h4>' . $row['blog_title'] .'</h4> 
-//                             <p class="blog_p">' .  $row['blog_details']   .   '</p>
-//                             <div class="deets">
-//                                 <div class="indeets">
-//                                     <p class="usern"> <b>Author:</b> ' .$row['username'].'</p>';
+                $blog = $blog . '<br><article class="blog_article">
+                            <h4>' . $row['blog_title'] .'</h4> 
+                            <p class="blog_p">' .  $row['blog_details']   .   '</p>
+                            <div class="deets">
+                                <div class="indeets">
+                                    <p class="usern"> <b>Author:</b> ' .$row['username'].'</p>';
 
-//                 if((isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) && $_SESSION["username"] == "tester1"){
-//                     $blog = $blog .    '<form method="POST" action="removeentry.php">
-//                                             <input type="hidden" name="entryID" value="'. $row['id'].'">
-//                                             <button class="removeentry" type="submit"  onClick="javascript:removeentry(this);">Delete Entry</button>
-//                                         </form>';
-//                 }
-//                 $blog = $blog .    '</div>
-//                                         <p class="date">' .date('jS F Y', $t). '</p><br><p class="date">' .date('g:i A e', $t) .'</p>
-//                                     </div>
-//                                 </article>';
+                if((isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) && $_SESSION["username"] == "tester1"){
+                    $blog = $blog .    '<form method="POST" action="removeentry.php">
+                                            <input type="hidden" name="entryID" value="'. $row['id'].'">
+                                            <button class="removeentry" type="submit"  onClick="javascript:removeentry(this);">Delete Entry</button>
+                                        </form>';
+                }
+                $blog = $blog .    '</div>
+                                        <p class="date">' .date('jS F Y', $t). '</p><br><p class="date">' .date('g:i A e', $t) .'</p>
+                                    </div>
+                                </article>';
 
-//                                 $_SESSION["rowo"] = $row['id'];
-//                                 include "blogComms.php";
+                                $_SESSION["rowo"] = $row['id'];
+                                include "blogComms.php";
 
-//                                 $blog = $blog . $blogcomm ;
-//             } if(empty(trim($blog))){
-//                 $blog = $blog .    '<div class="noEntryForMonth">
-//                                     <p> No entry for this month! :< </p>
-//                                     </div>';
-//             }
+                                $blog = $blog . $blogcomm ;
+            } if(empty(trim($blog))){
+                $blog = $blog .    '<div class="noEntryForMonth">
+                                    <p> No entry for this month! :< </p>
+                                    </div>';
+            }
 
-//     } else if(!isset($_POST['reorderbtn']) || $date_chosen == "All"){
+    } else if(!isset($_POST['reorderbtn']) || $date_chosen == "All"){
 
-//         $blog = $blog . '<br><article class="blog_article">
-//                             <h4>' . $row['blog_title'] .'</h4> 
-//                             <p class="blog_p">' .  $row['blog_details']   .   '</p>
-//                             <div class="deets">
-//                                 <div class="indeets">
-//                                     <p class="usern"> <b>Author:</b> ' .$row['username'].'</p>';
+        $blog = $blog . '<br><article class="blog_article">
+                            <h4>' . $row['blog_title'] .'</h4> 
+                            <p class="blog_p">' .  $row['blog_details']   .   '</p>
+                            <div class="deets">
+                                <div class="indeets">
+                                    <p class="usern"> <b>Author:</b> ' .$row['username'].'</p>';
 
-//         if((isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) && $_SESSION["username"] == "tester1"){
-//             $blog = $blog .    '<form method="POST" action="removeentry.php">
-//                                     <input type="hidden" name="entryID" value="'. $row['id'].'">
-//                                     <button class="removeentry" type="submit"  onClick="javascript:removeentry(this);">Delete Entry</button>
-//                                 </form>';
-//         }
+        if((isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) && $_SESSION["username"] == "tester1"){
+            $blog = $blog .    '<form method="POST" action="removeentry.php">
+                                    <input type="hidden" name="entryID" value="'. $row['id'].'">
+                                    <button class="removeentry" type="submit"  onClick="javascript:removeentry(this);">Delete Entry</button>
+                                </form>';
+        }
 
-//         $blog = $blog .    '</div>
-//                                 <p class="date">' .date('jS F Y', $t). '</p><br><p class="date">' .date('g:i A e', $t) .'</p>
-//                             </div>
-//                         </article>';
+        $blog = $blog .    '</div>
+                                <p class="date">' .date('jS F Y', $t). '</p><br><p class="date">' .date('g:i A e', $t) .'</p>
+                            </div>
+                        </article>';
 
-//                          $_SESSION["rowo"] = $row['id'];
-//                         include "blogComms.php";
+                         $_SESSION["rowo"] = $row['id'];
+                        include "blogComms.php";
 
-//                         $blog = $blog . $blogcomm ;
-//     }
-// };
+                        $blog = $blog . $blogcomm ;
+    }
+    $counter++;
+};
   
 $conn->close();
 
