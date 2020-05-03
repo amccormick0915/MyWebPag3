@@ -66,7 +66,7 @@ function date_sort($arrayy){
             $arrayy[$i +1] = $temp;
         }
     }
-    echo "<br> other testing: " . $arrayy[0] . " " - $arrayy[0][0] . "<br>";
+    echo "<br> other testing: " . $arrayy[0] . " " . $arrayy[0][0] . "<br>";
     
     return $arrayy;
 }
