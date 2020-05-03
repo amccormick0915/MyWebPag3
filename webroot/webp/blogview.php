@@ -12,6 +12,7 @@ $btitle = "";
 $blog = "";
 $blogcomm = "";
 $date_chosen ="";
+$counter = 0;
 
 $_SESSION["rowo"] = "";
 
@@ -25,7 +26,6 @@ function date_sort($blog_row){
             $blog_row[$i + 1] = $temp;
         }
     }
-    return $blog_row;
 }
 
 if(isset($_POST['reorderbtn'])){
@@ -58,7 +58,12 @@ if( mysqli_num_rows($result) == 0 && ( !isset($_SESSION["loggedin"]) || $_SESSIO
            </script>";
 }
  $result = date_sort($result);
-while($row = mysqli_fetch_array($result)){
+
+while($data_row = mysqli_fetch_array($result)){
+    $row[] = $data_row;
+}
+
+while( $counter < sizeof($row)){
 
     $t = strtotime($row['created']);
 
