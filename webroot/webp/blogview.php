@@ -20,8 +20,7 @@ function date_sort($blog_row){
 
     for($i = 0; $i < $blog_row; $i+5 ){
 
-        if($blog_row[$i + 4] > $blog_row[$i + 9] ){
-
+        if($blog_row[$i + 4] < $blog_row[$i + 9] ){
             for( $k = 0; $k < 5; $k++){
                 $temp = $blog_row[$i + $k];
                 $blog_row[$i + $k] =$blog_row[$i + $k + 9];
@@ -60,6 +59,7 @@ if( mysqli_num_rows($result) == 0 && ( !isset($_SESSION["loggedin"]) || $_SESSIO
                 alert('No Entries Available! Please add one!'); 
            </script>";
 }
+
 while($data_row = mysqli_fetch_array($result)){
     $row[] = $data_row;
 }
@@ -68,7 +68,7 @@ date_sort($row);
 
 
 while( $counter < sizeof($row) ){
-    echo ' test: ' . $row[counter] ;
+    echo ' test: ' . $row[$counter] ;
     $t = strtotime($row['created']);
 
     if(isset($_POST['reorderbtn']) && isset($date_chosen) && $date_chosen!= "All" ){
