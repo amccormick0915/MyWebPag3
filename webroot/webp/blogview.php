@@ -18,12 +18,15 @@ $_SESSION["rowo"] = "";
 
 function date_sort($blog_row){
 
-    for($i = 0; $i < $blog_row; $i++ ){
+    for($i = 0; $i < $blog_row; $i+5 ){
 
-        if($blog_row[$i] > $blog_row[$i + 1] ){
-            $temp = $blog_row[$i];
-            $blog_row[$i] =$blog_row[$i + 1];
-            $blog_row[$i + 1] = $temp;
+        if($blog_row[$i + 4] > $blog_row[$i + 9] ){
+
+            for( $k = 0; $k < 5; $k++){
+                $temp = $blog_row[$i + $k];
+                $blog_row[$i + $k] =$blog_row[$i + $k + 9];
+                $blog_row[$i + $k + 5] = $temp;
+            }
         }
     }
 }
