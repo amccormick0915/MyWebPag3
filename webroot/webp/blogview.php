@@ -50,8 +50,9 @@ if( mysqli_num_rows($result) == 0 && ( !isset($_SESSION["loggedin"]) || $_SESSIO
 while($data_row = mysqli_fetch_array($result)){
     $rowss[] = $data_row;
 }
-$rows[] = $date_sort($rowss);
-function $date_sort($arrayy){
+$rows[] = date_sort($rowss);
+
+function date_sort($arrayy){
 
     for($i = 0; $i < sizeof($arrayy); $i++){
 
