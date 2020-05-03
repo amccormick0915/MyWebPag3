@@ -36,7 +36,7 @@ if( !isset($_SESSION["loggedin"])|| $_SESSION["loggedin"] != true ){
 // If they are logged in, the welcome mesage appears! and the logout button and Add Post button!
 } else {
 
-    $_SESSION['welcomemessge'] = '<h1> Hi, <b>' . htmlspecialchars($_SESSION["username"]) . '</b>. Welcome to my site.</h1>';
+    $_SESSION['welcomemessge'] = '<h1> Hi, <b>' . $_SESSION["username"] . '</b>. Welcome to my site.</h1>';
 
     $_SESSION['logout'] = ' <form method="POST">
                                 <div class="logout">

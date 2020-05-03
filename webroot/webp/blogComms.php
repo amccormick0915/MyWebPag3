@@ -1,7 +1,7 @@
 <?php
 $blogcomm = "";
 
-$sqlcomm = "SELECT comment, comment_ID, id, username, created FROM `comments` ORDER BY `comments`.`created` ASC";
+$sqlcomm = "SELECT comment, comment_ID, id, username, created FROM comments ORDER BY `comments`.`created` ASC";
 
 $resultcomms = mysqli_query($conn,$sqlcomm);
 
