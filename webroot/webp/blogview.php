@@ -48,7 +48,7 @@ if( mysqli_num_rows($result) == 0 && ( !isset($_SESSION["loggedin"]) || $_SESSIO
 }
 $count = 0;
 while($data_row = mysqli_fetch_array($result)){
-
+    echo $data_row[0] . " checking data row and counter is = " . $count;
     $rowss[$count] = $data_row;
     $count++;
 }
@@ -58,7 +58,7 @@ echo "test2: " . $rows[0]["created"] . "  ". $rows . " " . sizeof($rowss);
 function date_sort($arrayy){
 
     for($i = 0; $i < sizeof($arrayy) - 1; $i++){
-        echo " for testing s";
+        echo " for testing ";
         if( strtotime($arrayy[$i]["created"]) < strtotime($arrayy[$i + 1]["created"]) ){
 
             $temp = $array[$i];
@@ -66,6 +66,8 @@ function date_sort($arrayy){
             $arrayy[$i +1] = $temp;
         }
     }
+    echo "<br> other testing: " . $arrayy[0] . " " - $arrayy[0][0] . "<br>";
+    
     return $arrayy;
 }
 
