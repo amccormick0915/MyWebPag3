@@ -180,10 +180,10 @@ $conn->close();
             </ul>
         </nav>
 
-        <div class="blogo"> 
+        <!-- <div class="blogo"> 
             <div class="blog">
                 <button id="blog" name="Blog" onClick="javascript:addentry(this);"> ADD BLOG ENTRY </button>
-            </div>
+            </div> -->
 
             <div class="blog">
                 <form method="POST">
