@@ -6,8 +6,10 @@ require_once "config.php";
 // Define variables and initialize with empty values
 $username = "";
 $password = "";
+$email = "";
 $username_err = "";
 $pass_err = ""; 
+$email_err = ""; 
 
 
 if(isset($_POST['submit'])){  
@@ -29,6 +31,22 @@ if(isset($_POST['submit'])){
         }
     }
 
+    if(empty(trim($_POST["email"]))){
+        $username_err = "Please enter E-mail!";
+    } else{
+        // Prepare a select statement
+        $mail = $_POST['email'];
+        $sql = "SELECT id FROM USERS WHERE email = '" . $mail . "'";
+        $result =  mysqli_query($conn,$sql);
+        $num_rows = mysqli_num_rows($result);
+
+        if($num_rows >0){
+            $email_err = "E-mail already in database!";
+        } else {
+            $email = $mail;
+        }
+    }
+
     // Checks if password is empty or not
     if(empty(trim($_POST["password"]))){
         $pass_err = "Please enter password";     
@@ -36,10 +54,10 @@ if(isset($_POST['submit'])){
         $password = $_POST["password"];
     }
     
-    if(empty($username_err) && empty($pass_err)){
+    if(empty($username_err) && (empty($pass_err) && empty($email_err))){
         $new_pass = password_hash($password, PASSWORD_DEFAULT);
-        echo $username . $new_pass;
-        $sql = "INSERT INTO users (id,username, password) VALUES ( DEFAULT,'" . $username . "','" . $new_pass  . "')";
+        // echo $username . $new_pass;
+        $sql = "INSERT INTO USERS (id,username, email, password) VALUES ( DEFAULT,'" . $username . "','" . $email . "','" . $new_pass  . "')";
 
         if(mysqli_query($conn, $sql)){
             $_SESSION["signinmssg"]  = '<h1> Sign-in Successful! you can now Log-in to POST a blog!</h1>';
@@ -84,6 +102,12 @@ if(isset($_POST['submit'])){
                 <div class="buttons">
 
                     <form  method="POST" > 
+
+                        <div>
+                                <label>E-mail</label>
+                                <input type="text" name="email" value="<?php echo $email; ?>">
+                            <span ><?php echo $email_err; ?></span>
+                        </div> 
 
                         <div>
                                 <label>Username</label>
