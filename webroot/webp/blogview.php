@@ -57,11 +57,12 @@ if( mysqli_num_rows($result) == 0 && ( !isset($_SESSION["loggedin"]) || $_SESSIO
                 alert('No Entries Available! Please add one!'); 
            </script>";
 }
- $result = date_sort($result);
-
 while($data_row = mysqli_fetch_array($result)){
     $row[] = $data_row;
 }
+
+date_sort($row);
+
 
 while( $counter < sizeof($row) ){
     echo ' test: ' . $row[counter] ;
