@@ -23,7 +23,7 @@ if(isset($_POST['reorderbtn'])){
 
 if(isset($_POST['Blog0'])){
     if(( isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] == true)){
-    header("index.php");
+        header("location: index.php");
     } else {
     echo  "<script>
                 alert('NOT LOGGED IN! Please Log-in first to be able to add an entry!'); 
@@ -44,6 +44,7 @@ if( mysqli_num_rows($result) == 0 && ( !isset($_SESSION["loggedin"]) || $_SESSIO
 } else if (mysqli_num_rows($result) == 0){
     echo  "<script>
                 alert('No Entries Available! Please add one!'); 
+                window.location.href='addentry.php';
            </script>";
 }
 
