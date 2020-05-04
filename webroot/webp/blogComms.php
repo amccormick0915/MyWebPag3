@@ -9,7 +9,7 @@ $blogcomm = '<div class="commentsection"><h1>Comment Section</h1>';
 
 if( isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
     $blogcomm = $blogcomm   .'<div class="positionright">
-                            <div class="addcommbtnrel" id="btnrowID'. $row['id'].'">
+                            <div class="addcommbtnrel" id="btnrowID'. $row[2].'">
                                 <button class="addcommbtn"  type="button" name="commentbtn" onClick="javascript:addcommentbtn(this.value);" value="rowID'. $row['id'].'">Add Comment</button>
                             </div></div>';   
 } else {
@@ -19,14 +19,14 @@ if( isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
                             </div></div>';
 }
 
-$blogcomm = $blogcomm   .'<div id="rowID'. $row['id'].'" style="display:none" >
+$blogcomm = $blogcomm   .'<div id="rowID'. $row[2].'" style="display:none" >
                             <form id="commentform" class="commentform" method="POST" action="addComm.php">
-                                <input type="hidden" name="commentID" value="'. $row['id'].'">
-                                <textarea id="txta' . $row['id'] .'" name="txtar" rows="3" cols="80" placeholder="Enter comment here!"></textarea>
+                                <input type="hidden" name="commentID" value="'. $row[2].'">
+                                <textarea id="txta' . $row[2] .'" name="txtar" rows="3" cols="80" placeholder="Enter comment here!"></textarea>
                                 <span class="addback">
                                     <ul>
-                                    <li><button class="addcommbtn" type="submit" name="addcommentbtn" value="'.$row['id'].'" onClick="javascript:clicksubmit(this.value);">Add</button></li>
-                                    <li><button class="addcommbtn" type="button" onClick="javascript:dontaddcommentbtn(this.value,'. $row['id'] .');" value="rowID' .  $row['id'] .'">Back</button></li>
+                                    <li><button class="addcommbtn" type="submit" name="addcommentbtn" value="'.$row[2].'" onClick="javascript:clicksubmit(this.value);">Add</button></li>
+                                    <li><button class="addcommbtn" type="button" onClick="javascript:dontaddcommentbtn(this.value,'. $row[2] .');" value="rowID' .  $row[2] .'">Back</button></li>
                                     </ul>
                                 </span>
                             </form>
