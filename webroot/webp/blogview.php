@@ -57,11 +57,11 @@ while($data_row = mysqli_fetch_array($result)){
 // echo "test2: " . $rowss[0][0] . " " . sizeof($rowss) . "<br>";
 
 //strtotime($rowss[$i]["created"]) < strtotime($rowss[$i + 1]["created"])
-    for($i = 0; $i < sizeof($rowss) - 1; $i++){
-        for($k =  1; $k < sizeof($rowss) - $i - 1; $k++ ){
-            $temp = $rowss[$k];
-            $rowss[$k] = $rowss[$k +1];
-            $rowss[$k +1] = $temp;
+    for($i = 0; $i < sizeof($rows) - 1; $i++){
+        for($k =  1; $k < sizeof($rows) - $i - 1; $k++ ){
+            $temp = $rows[$k];
+            $rows[$k] = $rows[$k +1];
+            $rows[$k +1] = $temp;
         }
     }
     
