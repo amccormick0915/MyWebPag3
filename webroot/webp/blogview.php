@@ -73,27 +73,27 @@ while($data_row = mysqli_fetch_array($result)){
  
  $row = $rows[$counter];
  echo "<br> next test:" . $row[0];
- echo "<br> next test:" . $row["username"];
 //  echo "<br>test: " . $rowss[0][0]." test " . $rows[0][1] ." " . $rows[0][2]." " . $rows[0][3] ." " . $rows[0][4] ." " . $rows[0]["blog_details"]." " ;
 
 while( $counter < sizeof($row) ){
     $row = $rows[$counter];
-    $t = strtotime($row['created']);
+    // blog_details, blog_title, id, username, created 
+    $t = strtotime($row[4]);
 
     if(isset($_POST['reorderbtn']) && isset($date_chosen) && $date_chosen!= "All" ){
 
             if(date('F', $t) == $date_chosen ){
                 
                 $blog = $blog . '<br><article class="blog_article">
-                            <h4>' . $row['blog_title'] .'</h4> 
-                            <p class="blog_p">' .  $row['blog_details']   .   '</p>
+                            <h4>' . $row[1] .'</h4> 
+                            <p class="blog_p">' .  $row[0]   .   '</p>
                             <div class="deets">
                                 <div class="indeets">
-                                    <p class="usern"> <b>Author:</b> ' .$row['username'].'</p>';
+                                    <p class="usern"> <b>Author:</b> ' .$row[3].'</p>';
 
                 if((isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) && $_SESSION["username"] == "tester1"){
                     $blog = $blog .    '<form method="POST" action="removeentry.php">
-                                            <input type="hidden" name="entryID" value="'. $row['id'].'">
+                                            <input type="hidden" name="entryID" value="'. $row[2].'">
                                             <button class="removeentry" type="submit"  onClick="javascript:removeentry(this);">Delete Entry</button>
                                         </form>';
                 }
@@ -102,7 +102,7 @@ while( $counter < sizeof($row) ){
                                     </div>
                                 </article>';
 
-                                $_SESSION["rowo"] = $row['id'];
+                                $_SESSION["rowo"] = $row[2];
                                 include "blogComms.php";
 
                                 $blog = $blog . $blogcomm ;
@@ -115,15 +115,15 @@ while( $counter < sizeof($row) ){
     } else if(!isset($_POST['reorderbtn']) || $date_chosen == "All"){
 
         $blog = $blog . '<br><article class="blog_article">
-                            <h4>' . $row['blog_title'] .'</h4> 
-                            <p class="blog_p">' .  $row['blog_details']   .   '</p>
+                            <h4>' . $row[1] .'</h4> 
+                            <p class="blog_p">' .  $row[0]   .   '</p>
                             <div class="deets">
                                 <div class="indeets">
-                                    <p class="usern"> <b>Author:</b> ' .$row['username'].'</p>';
+                                    <p class="usern"> <b>Author:</b> ' .$row[3].'</p>';
 
         if((isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) && $_SESSION["username"] == "tester1"){
             $blog = $blog .    '<form method="POST" action="removeentry.php">
-                                    <input type="hidden" name="entryID" value="'. $row['id'].'">
+                                    <input type="hidden" name="entryID" value="'. $row[2].'">
                                     <button class="removeentry" type="submit"  onClick="javascript:removeentry(this);">Delete Entry</button>
                                 </form>';
         }
@@ -133,7 +133,7 @@ while( $counter < sizeof($row) ){
                             </div>
                         </article>';
 
-                         $_SESSION["rowo"] = $row['id'];
+                         $_SESSION["rowo"] = $row[2];
                         include "blogComms.php";
 
                         $blog = $blog . $blogcomm ;
