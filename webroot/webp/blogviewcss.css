@@ -112,7 +112,7 @@ p.blog_p {
     background-color: rgba(255, 255, 255, 0.788);
     padding: .5em;
     word-wrap: break-word;
-    margin: .1em;
+    margin: .1em 0 .4em;
     border-radius: .2em;
 }
 figcaption.blogcap{
@@ -130,6 +130,7 @@ form p{
     padding: 1em 0em 0em 0em;
     margin: 0 0 -2.5em 0;
     font-family: "fipps";
+    line-height: 2em;
     text-shadow: 1px 2px rgba(216, 95, 165, 0.829);
 }
 form select option{
