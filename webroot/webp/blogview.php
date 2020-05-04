@@ -46,6 +46,7 @@ if( mysqli_num_rows($result) == 0 && ( !isset($_SESSION["loggedin"]) || $_SESSIO
                 alert('No Entries Available! Please add one!'); 
            </script>";
 }
+
 $count = 0;
 
 while($data_row = mysqli_fetch_array($result)){
@@ -54,14 +55,17 @@ while($data_row = mysqli_fetch_array($result)){
 }
 
 for($i = 0; $i < sizeof($rows) - 1; $i++){
+    echo "1";
     for($k =  1; $k < sizeof($rows) - $i - 1; $k++ ){
         $temp = $rows[$k];
         $rows[$k] = $rows[$k +1];
         $rows[$k +1] = $temp;
     }
+    echo "2";
 }
-
-while( $counter < (sizeof($row)) ){
+echo "3";
+while( $counter < (sizeof($row)-1) ){
+    echo "4";
     $row = $rows[$counter];
     $t = strtotime($row[4]);
 
