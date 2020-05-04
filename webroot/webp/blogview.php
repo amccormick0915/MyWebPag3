@@ -50,27 +50,26 @@ $count = 0;
 
 while($data_row = mysqli_fetch_array($result)){
     echo $data_row[0] . " checking data row and counter is = " . $count . "<br>";
-    $rowss[$count] = $data_row;
+    $rows[$count] = $data_row;
     $count++;
 }
 // date_sort($rowss);
-echo "test2: " . $rowss[0][0] . " " . sizeof($rowss) . "<br>";
+// echo "test2: " . $rowss[0][0] . " " . sizeof($rowss) . "<br>";
 
-
+//strtotime($rowss[$i]["created"]) < strtotime($rowss[$i + 1]["created"])
     for($i = 0; $i < sizeof($rowss) - 1; $i++){
-        echo " for testing " . strtotime($rowss[$i]["created"]) ;
-        if( strtotime($rowss[$i]["created"]) < strtotime($rowss[$i + 1]["created"]) ){
-
-            $temp = $array[$i];
-            $rowss[$i] = $rowss[$i +1];
-            $rowss[$i +1] = $temp;
+        for($k =  1; $k < sizeof($rowss) - $i - 1; $k++ ){
+            $temp = $rowss[$k];
+            $rowss[$k] = $rowss[$k +1];
+            $rowss[$k +1] = $temp;
         }
-    }               
-    echo "<br> other testing: " .  " " . $rowss[0][0] . "<br>";
+    }
+    
+    // echo "<br> other testing: " .  " " . $rowss[0][0] . "<br>";
     //                              this one outputs array and this "blog details" 
 
 
- echo "<br>test: " . $rowss[0][0]." test " . $rows[0][1] ." " . $rows[0][2]." " . $rows[0][3] ." " . $rows[0][4] ." " . $rows[0]["blog_details"]." " ;
+//  echo "<br>test: " . $rowss[0][0]." test " . $rows[0][1] ." " . $rows[0][2]." " . $rows[0][3] ." " . $rows[0][4] ." " . $rows[0]["blog_details"]." " ;
 
 while( $counter < sizeof($row) ){
     $row = $rows[$counter];
