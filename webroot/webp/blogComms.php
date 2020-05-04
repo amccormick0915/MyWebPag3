@@ -1,15 +1,15 @@
 <?php
 $blogcomm = "";
+$CommentBoxID = $row[2];
 
 $sqlcomm = "SELECT comment, comment__ID, id, username, created FROM comments ORDER BY comments.created ASC";
-
 $resultcomms = mysqli_query($conn,$sqlcomm);
 
 $blogcomm = '<div class="commentsection"><h1>Comment Section</h1>';
 
 if( isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
     $blogcomm = $blogcomm   .'<div class="positionright">
-                            <div class="addcommbtnrel" id="btnrowID'. $row[2].'">
+                            <div class="addcommbtnrel" id="btnrowID'. $CommentBoxID.'">
                                 <button class="addcommbtn"  type="button" name="commentbtn" onClick="javascript:addcommentbtn(this.value);" value="rowID'. $row[2].'">Add Comment</button>
                             </div></div>';   
 } else {
@@ -19,14 +19,14 @@ if( isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
                             </div></div>';
 }
 
-$blogcomm = $blogcomm   .'<div id="rowID'. $row[2].'" style="display:none" >
+$blogcomm = $blogcomm   .'<div id="rowID'. $CommentBoxID .'" style="display:none" >
                             <form id="commentform" class="commentform" method="POST" action="addComm.php">
-                                <input type="hidden" name="commentID" value="'. $row[2].'">
-                                <textarea id="txta' . $row[2] .'" name="txtar" rows="3" cols="80" placeholder="Enter comment here!"></textarea>
+                                <input type="hidden" name="commentID" value="'. $CommentBoxID .'">
+                                <textarea id="txta' . $CommentBoxID .'" name="txtar" rows="3" cols="80" placeholder="Enter comment here!"></textarea>
                                 <span class="addback">
                                     <ul>
-                                    <li><button class="addcommbtn" type="submit" name="addcommentbtn" value="'.$row[2].'" onClick="javascript:clicksubmit(this.value);">Add</button></li>
-                                    <li><button class="addcommbtn" type="button" onClick="javascript:dontaddcommentbtn(this.value,'. $row[2] .');" value="rowID' .  $row[2] .'">Back</button></li>
+                                    <li><button class="addcommbtn" type="submit" name="addcommentbtn" value="'.$CommentBoxID.'" onClick="javascript:clicksubmit(this.value);">Add</button></li>
+                                    <li><button class="addcommbtn" type="button" onClick="javascript:dontaddcommentbtn(this.value,'. $CommentBoxID .');" value="rowID' .  $CommentBoxID .'">Back</button></li>
                                     </ul>
                                 </span>
                             </form>
@@ -44,7 +44,7 @@ while($rowc = mysqli_fetch_array($resultcomms)){
                                     </div>
                                     <div class="deletecomm">
                                         <form method="POST" action="removecomment.php">
-                                            <input type="hidden" name="commentID" value="'.$rowc['comment_ID'].'">';
+                                            <input type="hidden" name="commentID" value="'.$rowc['comment__ID'].'">';
                                   
                                     if((isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) && $_SESSION["username"] == "tester1"){
                                         $blogcomm = $blogcomm .    '<button class="addcommbtn" type="submit"   onClick="javascript:removecomm(this);">Delete Comment</button>';
