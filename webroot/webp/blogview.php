@@ -49,35 +49,20 @@ if( mysqli_num_rows($result) == 0 && ( !isset($_SESSION["loggedin"]) || $_SESSIO
 $count = 0;
 
 while($data_row = mysqli_fetch_array($result)){
-    // echo $data_row[0] . " checking data row and counter is = " . $count . "<br>";
     $rows[$count] = $data_row;
     $count++;
 }
-// date_sort($rowss);
-// echo "test2: " . $rowss[0][0] . " " . sizeof($rowss) . "<br>";
 
-//strtotime($rowss[$i]["created"]) < strtotime($rowss[$i + 1]["created"])
-    for($i = 0; $i < sizeof($rows) - 1; $i++){
-        for($k =  1; $k < sizeof($rows) - $i - 1; $k++ ){
-            $temp = $rows[$k];
-            $rows[$k] = $rows[$k +1];
-            $rows[$k +1] = $temp;
-        }
+for($i = 0; $i < sizeof($rows) - 1; $i++){
+    for($k =  1; $k < sizeof($rows) - $i - 1; $k++ ){
+        $temp = $rows[$k];
+        $rows[$k] = $rows[$k +1];
+        $rows[$k +1] = $temp;
     }
-    
-    // echo "<br> other testing: " .  " " . $rowss[0][0] . "<br>";
-    //                              this one outputs array and this "blog details" 
-
- echo "<br>one more test: " . $rows[0]["created"] ;
- echo "<br>one more test: " . $rows[1]["created"] ;
- 
- $row = $rows[$counter];
- echo "<br> next test:" . $row[0];
-//  echo "<br>test: " . $rowss[0][0]." test " . $rows[0][1] ." " . $rows[0][2]." " . $rows[0][3] ." " . $rows[0][4] ." " . $rows[0]["blog_details"]." " ;
+}
 
 while( $counter < (sizeof($row)-1) ){
     $row = $rows[$counter];
-    // blog_details, blog_title, id, username, created 
     $t = strtotime($row[4]);
 
     if(isset($_POST['reorderbtn']) && isset($date_chosen) && $date_chosen!= "All" ){
