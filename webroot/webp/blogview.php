@@ -49,7 +49,7 @@ if( mysqli_num_rows($result) == 0 && ( !isset($_SESSION["loggedin"]) || $_SESSIO
 $count = 0;
 
 while($data_row = mysqli_fetch_array($result)){
-    echo $data_row[0] . " checking data row and counter is = " . $count . "<br>";
+    // echo $data_row[0] . " checking data row and counter is = " . $count . "<br>";
     $rows[$count] = $data_row;
     $count++;
 }
