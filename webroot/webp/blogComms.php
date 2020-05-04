@@ -10,7 +10,7 @@ $blogcomm = '<div class="commentsection"><h1>Comment Section</h1>';
 if( isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
     $blogcomm = $blogcomm   .'<div class="positionright">
                             <div class="addcommbtnrel" id="btnrowID'. $row[2].'">
-                                <button class="addcommbtn"  type="button" name="commentbtn" onClick="javascript:addcommentbtn(this.value);" value="rowID'. $row['id'].'">Add Comment</button>
+                                <button class="addcommbtn"  type="button" name="commentbtn" onClick="javascript:addcommentbtn(this.value);" value="rowID'. $row[2].'">Add Comment</button>
                             </div></div>';   
 } else {
     $blogcomm = $blogcomm   .'<div class="positionright">
@@ -46,7 +46,7 @@ while($rowc = mysqli_fetch_array($resultcomms)){
                                         <form method="POST" action="removecomment.php">
                                             <input type="hidden" name="commentID" value="'.$rowc['comment_ID'].'">';
                                   
-                                    if((isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) && $_SESSION["username"] == "maki"){
+                                    if((isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) && $_SESSION["username"] == "tester1"){
                                         $blogcomm = $blogcomm .    '<button class="addcommbtn" type="submit"   onClick="javascript:removecomm(this);">Delete Comment</button>';
                                     }
 
