@@ -23,7 +23,7 @@ if(isset($_POST['reorderbtn'])){
 
 if(isset($_POST['Blog0'])){
     if(( isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] == true)){
-        header("location: index.php");
+        header("location: addentry.html");
     } else {
     echo  "<script>
                 alert('NOT LOGGED IN! Please Log-in first to be able to add an entry!'); 
@@ -44,7 +44,7 @@ if( mysqli_num_rows($result) == 0 && ( !isset($_SESSION["loggedin"]) || $_SESSIO
 } else if (mysqli_num_rows($result) == 0){
     echo  "<script>
                 alert('No Entries Available! Please add one!'); 
-                window.location.href='addentry.php';
+                window.location.href='addentry.html';
            </script>";
 }
 
@@ -141,9 +141,9 @@ $conn->close();
     </head>
 
     <script>          
-        function  addentry(target){
-            location.href='addentry.html';
-        };
+        // function  addentry(target){
+        //     location.href='addentry.html';
+        // };
 
         function clicksubmit(txtID){
             if(document.getElementById("txta" + txtID).value.length == 0 ){
