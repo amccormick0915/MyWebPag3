@@ -55,17 +55,13 @@ while($data_row = mysqli_fetch_array($result)){
 }
 
 for($i = 0; $i < sizeof($rows) - 1; $i++){
-    echo "1";
     for($k =  1; $k < sizeof($rows) - $i - 1; $k++ ){
         $temp = $rows[$k];
         $rows[$k] = $rows[$k +1];
         $rows[$k +1] = $temp;
     }
-    echo "2";
 }
-echo "3";
-while( $counter < (sizeof($row)-1) ){
-    echo "4";
+while( $counter < (sizeof($rows)-1) ){
     $row = $rows[$counter];
     $t = strtotime($row[4]);
 
