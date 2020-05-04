@@ -7,7 +7,7 @@ require_once "config.php";
  
 $commID = $_POST["commentID"];
   
-$sql = "DELETE FROM comments WHERE comment_ID=" . $commID ."";
+$sql = "DELETE FROM comments WHERE comment__ID=" . $commID ."";
 
 if(mysqli_query($conn, $sql)){
     echo "<script>
