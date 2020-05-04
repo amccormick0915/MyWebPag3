@@ -37,7 +37,7 @@ div.commentsection h1{
 }
 section.blog_article {
     margin: .1em .5em;
-    padding: .5em;
+    padding: .3em;
 }
 section.blog_article p{
     color: rgba(43, 15, 15, 0.781);
@@ -112,7 +112,7 @@ p.blog_p {
     background-color: rgba(255, 255, 255, 0.788);
     padding: .5em;
     word-wrap: break-word;
-    margin: .7em 0;
+    margin: .1em;
     border-radius: .2em;
 }
 figcaption.blogcap{
