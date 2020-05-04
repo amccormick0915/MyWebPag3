@@ -61,7 +61,7 @@ for($i = 0; $i < sizeof($rows) - 1; $i++){
         $rows[$k +1] = $temp;
     }
 }
-while( $counter < (sizeof($rows)-1) ){
+while( $counter < sizeof($rows) ){
     $row = $rows[$counter];
     $t = strtotime($row[4]);
 
