@@ -70,6 +70,10 @@ while($data_row = mysqli_fetch_array($result)){
 
  echo "<br>one more test: " . $rows[0]["created"] ;
  echo "<br>one more test: " . $rows[1]["created"] ;
+ 
+ $row = $rows[$counter];
+ echo "<br> next test:" . $row[0];
+ echo "<br> next test:" . $row["username"];
 //  echo "<br>test: " . $rowss[0][0]." test " . $rows[0][1] ." " . $rows[0][2]." " . $rows[0][3] ." " . $rows[0][4] ." " . $rows[0]["blog_details"]." " ;
 
 while( $counter < sizeof($row) ){
