@@ -75,7 +75,7 @@ while($data_row = mysqli_fetch_array($result)){
  echo "<br> next test:" . $row[0];
 //  echo "<br>test: " . $rowss[0][0]." test " . $rows[0][1] ." " . $rows[0][2]." " . $rows[0][3] ." " . $rows[0][4] ." " . $rows[0]["blog_details"]." " ;
 
-while( $counter < sizeof($row) ){
+while( $counter < (sizeof($row)-1) ){
     $row = $rows[$counter];
     // blog_details, blog_title, id, username, created 
     $t = strtotime($row[4]);
