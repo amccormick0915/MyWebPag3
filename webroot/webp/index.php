@@ -1,5 +1,6 @@
 <?php
 // Initialize the session
+// session_name("Index Vars");
 session_start();
 
 
@@ -45,7 +46,7 @@ if( !isset($_SESSION["loggedin"])|| $_SESSION["loggedin"] != true ){
                             </form>';
 
     $_SESSION['blogbtn'] = '    <div class="blog">
-                                    <button id="blog" name="Blog" onClick="javascript:clickinnerblog(this);"> ADD BLOG POST </button>
+                                    <button id="blog" name="Blog" onClick="javascript:clickinnerblog(this);"> ADD A BLOG POST </button>
                                 </div>
 
                                 <p>post something!</p>';
@@ -55,7 +56,7 @@ if( !isset($_SESSION["loggedin"])|| $_SESSION["loggedin"] != true ){
 if ( isset( $_POST['logout'] ) ) {
     require_once "logout.php";
 }
-
+// echo '<pre>'; var_dump($_SESSION); echo '</pre>';
 ?>
 
 <!DOCTYPE html>
@@ -87,18 +88,18 @@ if ( isset( $_POST['logout'] ) ) {
                 <h3> Student </h3>
             </hgroup>
 
-            <div class="message">
-                <span class="help-block"><?php echo $_SESSION['welcomemessge']; ?></span>
-                <span class="help-block"><?php echo $_SESSION["logoutmssg"]; ?></span>
-                <span class="help-block"><?php echo $_SESSION['signinmssg']; ?></span>
-            </div>
+            <aside class="message">
+                <span><?php echo $_SESSION['welcomemessge']; ?></span>
+                <span><?php echo $_SESSION["logoutmssg"]; ?></span>
+                <span><?php echo $_SESSION['signinmssg']; ?></span>
+            </aside>
             
         </header>
         
             <nav class="links">
                 <ul class="centerbanner">
                     <li><a href="#about"> About Myself </a></li>
-                    <li><a class="cv" href="blogview.php"> View Blog Posts (UwU)/ </a></li>
+                    <li><a class="cv" href="blogview.php"> View Blog Posts</a></li>
                     <li><a href="#linku"> Links </a></li>
                 </ul>
             </nav>
@@ -109,8 +110,14 @@ if ( isset( $_POST['logout'] ) ) {
                 </ul>
             </nav>
     <br>
-        <div class="center">
-            <article>
+            <aside class="mainaside">
+                            <span class="buttons"><?php echo $_SESSION['blogbtn']; ?></span>
+                            <span class="buttons"><?php echo $_SESSION['loginbtn']; ?></span>
+                            <span class="buttons"><?php echo $_SESSION['signinbtn']; ?></span>
+                            <span class="buttons"><?php echo $_SESSION['logout'];  ?></span>
+            </aside>
+            
+            <article class="center">
                 <h3><u>ABOUT ME</u></h3>
 
                 <section>
@@ -132,7 +139,7 @@ if ( isset( $_POST['logout'] ) ) {
 
                     <aside class="picture">
                         <figure>    
-                                                <!-- THE OLD PICTURE! https://i.ibb.co/FgtNL22/face.jpg -->
+                                         <!-- THE OLD PICTURE! https://i.ibb.co/FgtNL22/face.jpg -->
                             <img class="face" src="https://i.ibb.co/ZzYcw54/IMG-7912.jpg" alt="my face">   
                             <figcaption> <b>A picture of my face</b></figcaption> 
                         </figure>
@@ -140,26 +147,14 @@ if ( isset( $_POST['logout'] ) ) {
                 
             </article>
 
-            <aside class="mainaside">
-                    <div class="buttons">
-                            <span class="help-block"><?php echo $_SESSION['blogbtn']; ?></span>
-                            <span class="help-block"><?php echo $_SESSION['loginbtn']; ?></span>
-                            <span class="help-block"><?php echo $_SESSION['signinbtn']; ?></span>
-                            <span class="help-block"><?php echo $_SESSION['logout'];  ?></span>
-                    </div>
-            </aside>
-            
-        </div>
-
         <footer>  
             <nav class="links" id="linku"> 
                 <ul>
-                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> AbandonedAccount </a></li>
-                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> AbandonedAccount2 </a></li>
-                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> Abandoned3 </a></li>
+                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> My Facebook Account </a></li>
+                    <li><a> +44 7785549784 </a></li>
+                    <li><a> mail: annelynmccormick@yahoo.com </a></li>
                 </ul>  
             </nav>
-            <i> Copyright © 2020 Annelyn Mc Cormick</i>
             <li><i> Background images © Re°</i></li>
         </footer>
 

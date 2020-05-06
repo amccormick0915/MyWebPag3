@@ -2,7 +2,6 @@
 
 // Include config file
 session_start();
-
 require_once "config.php";
 
 $blogcreated = "";
@@ -16,11 +15,12 @@ $counter = 0;
 
 $_SESSION["rowo"] = "";
 
-
+//If user chooses to Re-order posts, the month chosen is aigned to var!
 if(isset($_POST['reorderbtn'])){
     $date_chosen = $_POST['months'];
 }
 
+//If user wants to add entry, we first check if they are logged in or not!
 if(isset($_POST['Blog0'])){
     if(( isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] == true)){
         header("location: addentry.html");
@@ -31,9 +31,9 @@ if(isset($_POST['Blog0'])){
            </script>";
     }
 }
-// ORDER BY `blog`.`created` DESC
-$sql = "SELECT blog_details, blog_title, id, username, created FROM `blog` ";
 
+//Query that returns all values (blog posts) from the table of BLOG
+$sql = "SELECT blog_details, blog_title, ID, username, created FROM `blog` ";
 $result = mysqli_query($conn,$sql);
 
 if( mysqli_num_rows($result) == 0 && ( !isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] != true)){
@@ -48,28 +48,52 @@ if( mysqli_num_rows($result) == 0 && ( !isset($_SESSION["loggedin"]) || $_SESSIO
            </script>";
 }
 
-$count = 0;
 
+//Initialise the vars to be used in the following codes!
+$count = 0;
+$show = false;
+
+
+//placing all ROWS from the table, inside an array!
 while($data_row = mysqli_fetch_array($result)){
     $rows[$count] = $data_row;
     $count++;
 }
 
+
+//For loop that sorts the dates using the IDs!
 for($i = 0; $i < sizeof($rows) - 1; $i++){
-    for($k =  1; $k < sizeof($rows) - $i - 1; $k++ ){
-        $temp = $rows[$k];
-        $rows[$k] = $rows[$k +1];
-        $rows[$k +1] = $temp;
+    for($k =  0; $k < sizeof($rows) - $i -1; $k++){
+        // echo $rows[$k]['ID'];
+        // echo "<br>" . sizeof($rows) ." and i = ". $i ."      k = " . $k . "<br>";
+        if($rows[$k]['ID'] < $rows[$k + 1]['ID']){
+            $temp = $rows[$k];
+            $rows[$k] = $rows[$k +1];
+            $rows[$k +1] = $temp;
+        }
     }
 }
+
+function addHR($counter, $rows, $show, $blog){ 
+    if( $counter != 0 && $show ){ 
+            $blog = $blog . '<hr style="height:5px;border-width:0;background-color:red">'; 
+        }
+    return $blog;
+}
+
+
+//Loop that writes HTML code including table variables from sql!
 while( $counter < sizeof($rows) ){
     $row = $rows[$counter];
     $t = strtotime($row[4]);
 
+    //If there is RE-ORDERING of posts!
     if(isset($_POST['reorderbtn']) && isset($date_chosen) && $date_chosen!= "All" ){
 
             if(date('F', $t) == $date_chosen ){
-                
+                $blog = addHR($counter, $rows, $show, $blog);
+                $show = true;
+
                 $blog = $blog . '<br><article class="blog_article">
                             <h4>' . $row[1] .'</h4> 
                             <p class="blog_p">' .  $row[0]   .   '</p>
@@ -92,21 +116,29 @@ while( $counter < sizeof($rows) ){
                                 include "blogComms.php";
 
                                 $blog = $blog . $blogcomm ;
-            } if(empty(trim($blog))){
+            } else {
+                $show = false;
+            }
+            
+            if( $counter == sizeof($rows) && empty(trim($blog))){
+                $show = false;
                 $blog = $blog .    '<div class="noEntryForMonth">
                                     <p> No entry for this month! :< </p>
                                     </div>';
             }
 
     } else if(!isset($_POST['reorderbtn']) || $date_chosen == "All"){
+        $blog = addHR($counter, $rows, $show, $blog);
+        $show = true;
 
         $blog = $blog . '<br><article class="blog_article">
                             <h4>' . $row[1] .'</h4> 
                             <p class="blog_p">' .  $row[0]   .   '</p>
                             <div class="deets">
                                 <div class="indeets">
-                                    <p class="usern"> <b>Author:</b> ' .$row[3].'</p>';
+                                <p class="usern"> <b>Author:</b> ' .$row[3].'</p>';
 
+        //If the user logged in is the ADMIN and not a guest user!
         if((isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) && $_SESSION["username"] == "tester1"){
             $blog = $blog .    '<form method="POST" action="removeentry.php">
                                     <input type="hidden" name="entryID" value="'. $row[2].'">
@@ -114,7 +146,7 @@ while( $counter < sizeof($rows) ){
                                 </form>';
         }
 
-        $blog = $blog .    '</div>
+        $blog = $blog .    '    </div>
                                 <p class="date">' .date('jS F Y', $t). '</p><br><p class="date">' .date('g:i A e', $t) .'</p>
                             </div>
                         </article>';
@@ -200,9 +232,6 @@ $conn->close();
         
         
         <div class="blogo"> 
-        <!-- <div class="blog">
-                <button id="blog" name="Blog" onClick="javascript:addentry(this);"> ADD BLOG ENTRY </button>
-            </div> -->
 
             <div class="blog">
                 <form method="POST">
@@ -238,12 +267,11 @@ $conn->close();
         <footer>  
             <nav class="links"> 
                 <ul>
-                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> AbandonedAccount </a></li>
-                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> AbandonedAccount2 </a></li>
-                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> Abandoned3 </a></li>
+                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> My Facebook Account </a></li>
+                    <li><a> +44 7785549784 </a></li>
+                    <li><a> mail: annelynmccormick@yahoo.com </a></li>
                 </ul>  
             </nav>
-            <i> Copyright © 2020 Annelyn Mc Cormick</i>
             <li><i> Background images © Re°</i></li>
         </footer>
 

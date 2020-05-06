@@ -59,5 +59,6 @@ while($rowc = mysqli_fetch_array($resultcomms)){
     }
 }
 
-$blogcomm = $blogcomm . "</div>";
+$blogcomm = $blogcomm . '</div>';
+
 ?> 

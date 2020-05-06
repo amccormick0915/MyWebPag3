@@ -24,10 +24,12 @@
                     document.getElementById('txtAre').style.boxShadow = "0 0 0 4px #91faff";
                     alert("Empty Entry!\r\nAdd title and Blog details!");
                 } else if (document.getElementById("blogtitle").value.length == 0){
-                    document.getElementById('blogtitle').style.borderColor = "red";
+                    document.getElementById('blogtitle').style.boxShadow = "0 0 0 4px #91faff";
+                    document.getElementById('txtAre').style.boxShadow = "none";
                     alert("Empty Entry!\r\nAdd title!");
                 } else {
-                    document.getElementById('txtAre').style.borderColor = "red";
+                    document.getElementById('blogtitle').style.boxShadow = "none";
+                    document.getElementById('txtAre').style.boxShadow = "0 0 0 4px #91faff";
                     alert("Empty Entry!\r\nAdd Blog details!");
                 }
             }
@@ -71,12 +73,11 @@
         <footer>  
             <nav class="links"> 
                 <ul>
-                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> AbandonedAccount </a></li>
-                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> AbandonedAccount2 </a></li>
-                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> Abandoned3 </a></li>
+                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> My Facebook Account </a></li>
+                    <li><a> +44 7785549784 </a></li>
+                    <li><a> mail: annelynmccormick@yahoo.com </a></li>
                 </ul>  
             </nav>
-            <i> Copyright © 2020 Annelyn Mc Cormick</i>
             <li><i> Background images © Re°</i></li>
         </footer>
 

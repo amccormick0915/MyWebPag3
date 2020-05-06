@@ -15,8 +15,6 @@
     $_SESSION["signinmssg"] = "";      
 
     // Unset all of the USER session variables.
-    unset($_SESSION['username']);
-    unset($_SESSION['id']);
-
     session_destroy();
+    // echo '<pre>'; var_dump($_SESSION); echo '</pre>';
 ?>

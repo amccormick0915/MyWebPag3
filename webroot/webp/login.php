@@ -21,10 +21,10 @@ if($num_rows == 1){
     $hashed_password = $row['password'];
     // password_verify(
     if(password_verify($password, $hashed_password)){
+        // session_name("USER VARS");
         session_start();
         // Store data in session variables
         $_SESSION["loggedin"] = true;
-        $_SESSION["id"] = $id;
         $_SESSION["username"] = $row['username'];   
         $_SESSION["signinmssg"] = "";                            
         

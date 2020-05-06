@@ -57,7 +57,7 @@ if(isset($_POST['submit'])){
     if(empty($username_err) && (empty($pass_err) && empty($email_err))){
         $new_pass = password_hash($password, PASSWORD_DEFAULT);
         // echo $username . $new_pass;
-        $sql = "INSERT INTO USERS (id,username, email, password) VALUES ( DEFAULT,'" . $username . "','" . $email . "','" . $new_pass  . "')";
+        $sql = "INSERT INTO USERS (id,username, email, password)  VALUES ( DEFAULT,'" . $username . "','" . $email . "','" . $new_pass  . "')";
 
         if(mysqli_query($conn, $sql)){
             $_SESSION["signinmssg"]  = '<h1> Sign-in Successful! you can now Log-in to POST a blog!</h1>';
@@ -135,12 +135,11 @@ if(isset($_POST['submit'])){
         <footer>  
             <nav class="links"> 
                 <ul>
-                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> AbandonedAccount </a></li>
-                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> AbandonedAccount2 </a></li>
-                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> Abandoned3 </a></li>
+                    <li><a href="https://en-gb.facebook.com/annelyn.mccormick.9"> My Facebook Account </a></li>
+                    <li><a> +44 7785549784 </a></li>
+                    <li><a> mail: annelynmccormick@yahoo.com </a></li>
                 </ul>  
             </nav>
-            <i> Copyright © 2020 Annelyn Mc Cormick</i>
             <li><i> Background images © Re°</i></li>
         </footer>
 
