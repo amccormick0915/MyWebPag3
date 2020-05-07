@@ -106,7 +106,7 @@ if ( isset( $_POST['logout'] ) ) {
             <nav class="links">
                 <ul class="centerbanner">
                     <li><a href="cv.php"> My CV </a></li>
-                    <li><a href="portfolio.html"> Portfolio</a></li>
+                    <li><a href="port.html"> Portfolio</a></li>
                 </ul>
             </nav>
     <br>

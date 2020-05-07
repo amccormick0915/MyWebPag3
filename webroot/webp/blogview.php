@@ -76,7 +76,7 @@ for($i = 0; $i < sizeof($rows) - 1; $i++){
 
 function addHR($counter, $rows, $show, $blog){ 
     if( $counter != 0 && $show ){ 
-            $blog = $blog . '<hr style="height:5px;border-width:0;background-color:red">'; 
+            $blog = $blog . '<hr>'; 
         }
     return $blog;
 }
@@ -116,16 +116,16 @@ while( $counter < sizeof($rows) ){
                                 include "blogComms.php";
 
                                 $blog = $blog . $blogcomm ;
-            } else {
-                $show = false;
-            }
-            
-            if( $counter == sizeof($rows) && empty(trim($blog))){
+            } if( $counter == (sizeof($rows)-1) && empty(trim($blog))){
                 $show = false;
                 $blog = $blog .    '<div class="noEntryForMonth">
                                     <p> No entry for this month! :< </p>
                                     </div>';
+            }else {
+                $show = false;
             }
+            
+            
 
     } else if(!isset($_POST['reorderbtn']) || $date_chosen == "All"){
         $blog = addHR($counter, $rows, $show, $blog);

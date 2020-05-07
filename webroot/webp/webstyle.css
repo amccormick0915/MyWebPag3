@@ -59,7 +59,11 @@ body{
     font-family: "simp";
     src: url("font/Simple tfb.ttf");
     font-size: 1vw;
-}
+}@font-face{
+    font-family: "song";
+    src: url("font/Please write me a song.ttf");
+    font-size: 1vw;
+} 
 
 
 /* not yet used 
@@ -111,12 +115,8 @@ FONTS WAITING TO BE USED!
     font-family: "daisy";
     src: url("font/paperdaisy-dvwo.ttf");
     font-size: 1vw;
-}
-@font-face{
-    font-family: "song";
-    src: url("font/Please write me a song.ttf");
-    font-size: 1vw;
 } */
+
 
 
 
@@ -227,8 +227,6 @@ footer i{
     text-align: center;
     color: rgb(128, 66, 30);
     font-size: .8vw;
-    padding: 1em 0 0 0;
-    line-height: 1vw;
     font-family: "fipps";
 }
 div.centerlogin{
@@ -303,7 +301,9 @@ figure.gif{
     padding: 1em;
 }
 hr {
-    height:5px;
+    height:9pt;
     border-width:0;
-    background-color:rgba(255, 196, 0, 0.459);
+    margin: 1em 0.5em 0;
+    border-radius: 1em;
+    background-color:rgba(245, 123, 107, 0.459);
 }

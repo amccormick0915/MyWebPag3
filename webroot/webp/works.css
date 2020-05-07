@@ -1,0 +1,56 @@
+section {
+    text-align: center;
+    border-radius: 15em;
+    background-color: rgba(240, 248, 255, 0.575);
+    box-shadow: 3pt 3pt rgba(245, 213, 176, 0.822);
+    margin: 1.5em 5em;
+    padding: 4em;
+}
+/* Bungee+Shade|Press+Start+2P|Fascinate+Inline|Viga */
+section h4{
+    text-align: center;
+    margin: 1em;
+}
+.picture {
+    text-align: center;
+}
+h4 {
+    font-family: simp;
+    font-size: 2.5vw;
+    margin: .5em;
+    color: rgba(31, 41, 175, 0.849);
+    text-shadow: 2pt 2pt rgb(133, 233, 236);
+    box-shadow: 2pt 3pt rgba(107, 74, 226, 0.87);
+    border-radius: 3em;
+}
+article h4,section,article,p{
+    text-align: center;
+}
+article {
+    width: 70%;
+    display: inline-block;
+    text-align: center;
+}
+html{
+    display: block;
+    text-align: center;
+    background: url("img/free.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+a {
+    font-size: 1.4vw;
+}
+figcaption {
+    margin: 1em 0 0 0;
+}
+footer {
+    margin: 1em 0 0 0;
+}
+img {
+    height: 50%;
+    width: 50%;
+    border-radius: 2em;
+    border: 1pt solid rgb(197, 116, 41);
+    margin: 1.5em;
+}
