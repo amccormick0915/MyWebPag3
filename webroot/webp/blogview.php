@@ -76,7 +76,7 @@ for($i = 0; $i < sizeof($rows) - 1; $i++){
 
 function addHR($counter, $rows, $show, $blog){ 
     if( $counter != 0 && $show ){ 
-            $blog = $blog . '<hr>'; 
+            $blog = $blog . '<hr style="height:9pt; border-width:0; margin: 1em 0.5em 0; border-radius: 1em; background-color:rgba(245, 123, 107, 0.459)">'; 
         }
     return $blog;
 }
