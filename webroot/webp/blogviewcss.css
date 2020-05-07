@@ -162,7 +162,7 @@ button.addcommbtn{
     box-shadow: 2px 2px rgb(228, 99, 222); 
 }
 button.removeentry{
-    margin: .5em 0 0 0em;
+    margin: 0 4em 0 0;
 }
 button.addcommbtn:hover{
     background-color: rgb(128, 154, 240);

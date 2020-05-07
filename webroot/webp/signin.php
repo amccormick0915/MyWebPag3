@@ -46,6 +46,9 @@ if(isset($_POST['submit'])){
             $email = $mail;
         }
     }
+    if((strlen($_POST["password"]))<6){
+        $pass_err = $pass_err . "Password length too short! Needs to be at least 6 characters!";
+    }
 
     // Checks if password is empty or not
     if(empty(trim($_POST["password"]))){
@@ -105,19 +108,19 @@ if(isset($_POST['submit'])){
 
                         <div>
                                 <label>E-mail</label>
-                                <input type="text" name="email" value="<?php echo $email; ?>">
+                                <input type="text" name="email">
                             <span ><?php echo $email_err; ?></span>
                         </div> 
 
                         <div>
                                 <label>Username</label>
-                                <input type="text" name="username" value="<?php echo $username; ?>">
+                                <input type="text" name="username">
                             <span ><?php echo $username_err; ?></span>
                         </div> 
 
                         <div>
                                 <label>Password</label>
-                                <input type="password" name="password" value="<?php echo $password; ?>">
+                                <input type="password" name="password">
                             <span ><?php echo $pass_err; ?></span>
                         </div>
 
