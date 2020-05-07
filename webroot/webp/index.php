@@ -29,7 +29,7 @@ if( !isset($_SESSION["loggedin"])|| $_SESSION["loggedin"] != true ){
                                 <p>login now to post something~!</p>';
 
     $_SESSION['signinbtn'] = '  <div class="signin">
-                                    <button id="sg" name="Signin" onClick="javascript:clickinnersign(this);"> SIGNIN </button>
+                                    <button id="sg" name="Signin" onClick="javascript:clickinnersign(this);"> SIGNUP </button>
                                 </div>
 
                                 <p>sign-in now!</p>';

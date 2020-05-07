@@ -34,11 +34,13 @@
                     <form action="login.php" method="POST">
                             <label>Enter e-mail</label>
                         <br>    
-                            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email"></input>
+                        <!-- // TRY PATTERN  /^[a-zA-Z]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$ -->
+                        <!-- [a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$ -->
+                            <input type="email" pattern="[a-zA-Z]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" name="email"></input>
                         <br>
                             <label>Enter password</label>
                         <br>
-                            <input type="password" pattern=".{6,}" name="password" required></input>
+                            <input type="password" pattern=".{4,}" name="password" required></input>
 
                         <div class="login">
                             <button id="lg" name="submit" >LOGIN</button>

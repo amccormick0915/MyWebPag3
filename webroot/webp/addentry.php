@@ -16,7 +16,7 @@ if( !empty($blogentry) && !empty($btitle)){
             
     $usern = $_SESSION['username'];
     // Prepare an insert statement
-    $sql = "INSERT INTO blog (username, blog_details, blog_title) VALUES ('" . $usern . "','" . $_POST['txtAre'] . "','" . $_POST['blogtitle'] . "')"; 
+    $sql = "INSERT INTO blog (username, blog_details, blog_title) VALUES ('" . $usern . "','" . addslashes($_POST['txtAre']) . "','" . addslashes($_POST['blogtitle']) . "')"; 
     
     if(mysqli_query($conn, $sql)){
         echo "<script>

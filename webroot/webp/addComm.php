@@ -9,7 +9,7 @@ $comment = $_POST['txtar'];
 $commID = $_POST['commentID'];
  
 
-$sql = "INSERT INTO comments (id,comment, username) VALUES ( '" . $commID . "' , '" . $comment.  "' , '" . $_SESSION['username'] . "' )";
+$sql = "INSERT INTO comments (id,comment, username) VALUES ( '" . $commID . "' , '" . addslashes($comment) .  "' , '" . addslashes($_SESSION['username']) . "' )";
 
 if(mysqli_query($conn, $sql)){
     echo "<script>

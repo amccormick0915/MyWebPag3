@@ -46,8 +46,8 @@ if(isset($_POST['submit'])){
             $email = $mail;
         }
     }
-    if((strlen($_POST["password"]))<6){
-        $pass_err = $pass_err . "Password length too short! Needs to be at least 6 characters!";
+    if((strlen($_POST["password"]))<4){
+        $pass_err = $pass_err . "Password length too short! Needs to be at least 4 characters!";
     }
 
     // Checks if password is empty or not
@@ -127,7 +127,7 @@ if(isset($_POST['submit'])){
                         <p>Already have an account? <a href="login.html">Login here</a></p>
 
                         <div class="signin">
-                            <button id="sg" name="submit" type="submit" value="Submit">SIGN IN</button>
+                            <button id="sg" name="submit" type="submit" value="Submit">SIGN UP</button>
                         </div>
                 
                     </form>
