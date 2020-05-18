@@ -66,60 +66,6 @@ body{
 } 
 
 
-/* not yet used 
-
-FONTS WAITING TO BE USED!
-
-*/
-/* @font-face{
-    font-family: "Ex";
-    src: url("font/Extrude.ttf");
-    font-size: 1vw;
-}
-@font-face{
-    font-family: "cellbliss";
-    src: url("font/CelluloidBliss.ttf");
-    font-size: 1vw;
-}
-@font-face{
-    font-family: "sunshine";
-    src: url("font/A little sunshine.ttf");
-    font-size: 1vw;
-} 
-@font-face{
-    font-family: "medi";
-    src: url("font/medicall.ttf");
-    font-size: 1vw;
-}
-@font-face{
-    font-family: "cena";
-    src: url("font/ARCENA.ttf");
-    font-size: 1vw;
-}
-@font-face{
-    font-family: "army";
-    src: url("font/BMarmy.ttf");
-    font-size: 1vw;
-}
-@font-face{
-    font-family: "vega";
-    src: url("font/vgafix.ofn");
-    font-size: 1vw;
-}
-@font-face{
-    font-family: "itck";
-    src: url("font/ITCBLKAD.ttf");
-    font-size: 1vw;
-}
-@font-face{
-    font-family: "daisy";
-    src: url("font/paperdaisy-dvwo.ttf");
-    font-size: 1vw;
-} */
-
-
-
-
 /* 
 
     GENERAL CSS CODE FOR WEBSITE! 
@@ -299,11 +245,4 @@ img.gif2{
 }
 figure.gif{
     padding: 1em;
-}
-hr {
-    height:9pt;
-    border-width:0;
-    margin: 1em 0.5em 0;
-    border-radius: 1em;
-    background-color:rgba(245, 123, 107, 0.459);
 }
