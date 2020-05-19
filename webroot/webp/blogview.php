@@ -105,9 +105,10 @@ while( $counter < sizeof($rows) ){
 
 
                 //If the user is admin, the delete entry button is added
+                //Input value that is hidden holds the post's ID, used for DELETING THE ENTRY!
                 if((isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) && $_SESSION["username"] == "tester1"){
                     $blog = $blog .    '<form method="POST" action="removeentry.php">
-                                            <input type="hidden" name="entryID" value="'. $row[2].'">
+                                            <input type="hidden" name="entryID" value="'. $row[2].'"> 
                                             <button class="removeentry" type="submit"  onClick="javascript:removeentry(this);">Delete Entry</button>
                                         </form>';
                 }
@@ -136,7 +137,7 @@ while( $counter < sizeof($rows) ){
             }
             
             
-    // this else block id is for showing all the posts xD
+    // this else block id is for showing all the posts 
     } else if(!isset($_POST['reorderbtn']) || $date_chosen == "All"){
         $blog = addHR($counter, $rows, $show, $blog);
         $show = true;
@@ -185,6 +186,7 @@ $conn->close();
 
     <script>   
 
+        //The reson we used the ID as id values for the comment box!
         function clicksubmit(txtID){
             if(document.getElementById("txta" + txtID).value.length == 0 ){
                 event.preventDefault();
@@ -193,6 +195,7 @@ $conn->close();
             }
         };
 
+        //The id enables to SHOW the correct comment box rather than showing ALL COMMENT BOXES
         function  addcommentbtn(rowID){
             var x = document.getElementById(rowID); 
                 x.style.display = "block";
@@ -200,6 +203,7 @@ $conn->close();
                 y.style.display = "none";
         };
 
+        //fucntion for the BACK bttn
         function  dontaddcommentbtn(rowID, txtID){
             var x = document.getElementById(rowID);
                 x.style.display = "none";

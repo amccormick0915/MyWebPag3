@@ -1,10 +1,12 @@
 <?php
 
 // Include config file
-session_start();
+// session_start();
 
 require_once "config.php";
  
+
+//The hidden input value passes the ID of the post!
 $entryID = $_POST["entryID"];
 $sql = "DELETE FROM blog WHERE ID='" . $entryID ."'";
 

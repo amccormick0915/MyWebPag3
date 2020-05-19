@@ -18,13 +18,12 @@ if(isset($_POST['submit'])){
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter username!";
     } else{
-        // Prepare a select statement
         $user = $_POST['username'];
         $sql = "SELECT id FROM USERS WHERE username = '" . $user . "'";
         $result =  mysqli_query($conn,$sql);
-        $num_rows = mysqli_num_rows($result);
+        $norows = mysqli_num_rows($result);
 
-        if($num_rows >0){
+        if($norows >0){
             $username_err = "Username already taken!";
         } else {
             $username = $user;
@@ -34,18 +33,20 @@ if(isset($_POST['submit'])){
     if(empty(trim($_POST["email"]))){
         $username_err = "Please enter E-mail!";
     } else{
-        // Prepare a select statement
+        // Prepare sql statement
         $mail = $_POST['email'];
         $sql = "SELECT id FROM USERS WHERE email = '" . $mail . "'";
         $result =  mysqli_query($conn,$sql);
-        $num_rows = mysqli_num_rows($result);
+        $norows = mysqli_num_rows($result);
 
-        if($num_rows >0){
+        if($norows >0){
             $email_err = "E-mail already in database!";
         } else {
             $email = $mail;
         }
     }
+
+
     if((strlen($_POST["password"]))<4){
         $pass_err = $pass_err . "Password length too short! Needs to be at least 4 characters!";
     }
@@ -57,9 +58,10 @@ if(isset($_POST['submit'])){
         $password = $_POST["password"];
     }
     
+
+    //If there are no errors, data is stored and redirect back to index, ELSE, stays on same page and erros are shown
     if(empty($username_err) && (empty($pass_err) && empty($email_err))){
         $new_pass = password_hash($password, PASSWORD_DEFAULT);
-        // echo $username . $new_pass;
         $sql = "INSERT INTO USERS (id,username, email, password)  VALUES ( DEFAULT,'" . $username . "','" . $email . "','" . $new_pass  . "')";
 
         if(mysqli_query($conn, $sql)){
@@ -108,19 +110,19 @@ if(isset($_POST['submit'])){
 
                         <div>
                                 <label>E-mail</label>
-                                <input type="text" name="email">
+                                <input type="text" name="email"><br>
                             <span ><?php echo $email_err; ?></span>
                         </div> 
 
                         <div>
                                 <label>Username</label>
-                                <input type="text" name="username">
+                                <input type="text" name="username"><br>
                             <span ><?php echo $username_err; ?></span>
                         </div> 
 
                         <div>
                                 <label>Password</label>
-                                <input type="password" name="password">
+                                <input type="password" name="password"><br>
                             <span ><?php echo $pass_err; ?></span>
                         </div>
 

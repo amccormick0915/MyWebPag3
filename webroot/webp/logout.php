@@ -1,4 +1,6 @@
 <?php
+
+//didnt use session destroy, because, still on the same page, because logout is a POST
     $_SESSION['logoutmssg'] = "<h1> Successful! you are now logged out!</h1>";
     $_SESSION['loginbtn'] = '  <div class="login">
                                     <button id="log" name="Login"  onClick="javascript:clickinnerlog(this);" > LOGIN</button>
@@ -14,7 +16,4 @@
     $_SESSION["loggedin"] = false;   
     $_SESSION["signinmssg"] = "";      
 
-    // Unset all of the USER session variables.
-    session_destroy();
-    // echo '<pre>'; var_dump($_SESSION); echo '</pre>';
 ?>
