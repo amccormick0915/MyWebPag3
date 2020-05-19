@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title> BLOG POST </title>
+        <title> BLOG ENTRY </title>
         <link rel="stylesheet" href="reset.css" type="text/css" />
         <link rel="stylesheet" href="webstyle.css" type="text/css" />
     </head>
@@ -16,6 +16,8 @@
             }
         };
 
+
+//Very specific highlighting
         function clicksubmit(target){
             if(document.getElementById("blogtitle").value.length == 0 || document.getElementById("txtAre").value.length == 0 ){
                 event.preventDefault();
@@ -58,10 +60,13 @@
                         <div id="highlight1">
                             <input type="text" name="blogtitle" id="blogtitle" class="bgtitle" placeholder="Enter Blog Title here!">
                         </div>
+                        
                         <br>
+
                         <div id="highlight2">
                         ​   <textarea name="txtAre" id="txtAre" rows="20" cols="150" placeholder="Enter Blog details here!"></textarea>
                         </div>
+
                         <div class="button">
                             <button type="submit" id="addPost" name="submit" onClick="javascript:clicksubmit(this);">Add Entry</button>
                             <button type="button" onClick="javascript:clickclear(this);">Clear Entry</button>

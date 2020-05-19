@@ -1,6 +1,5 @@
 <?php
 // Initialize the session
-// session_name("Index Vars");
 session_start();
 
 
@@ -56,7 +55,9 @@ if( !isset($_SESSION["loggedin"])|| $_SESSION["loggedin"] != true ){
 if ( isset( $_POST['logout'] ) ) {
     require_once "logout.php";
 }
-// echo '<pre>'; var_dump($_SESSION); echo '</pre>';
+
+// Uncomment this for checking session variables!
+// echo '<pre>'; var_dump($_SESSION); echo '</pre>'; 
 ?>
 
 <!DOCTYPE html>
@@ -122,18 +123,20 @@ if ( isset( $_POST['logout'] ) ) {
 
                 <section>
                     <p>
-                        The name is Annelyn Mc Cormick. I'm a student at Queen Mary University of London. I am an Irish national 
+                        I'm a student at Queen Mary University of London. I am an Irish national 
                         descending from both Irish and Filipino citizens. 
                         <br><br>
-                        I mostly grew up in Asia, specifically Philippines. This resulted in my very 
-                        asian mindset. the Filipino culture was deeply ingrained in my system, thus, I 
-                        consider myself more Filipino rather than Irish.
+                        I mostly grew up in Asia, specifically Philippines. However,
+                        after being able to study in an International school, I have 
+                        been able to break out from the open mindset I previously have and am now
+                        capable in working with different types of individuals.
                         <br><br>
-                        An interesting fact however, is that I was born in Spain, raised in Philippines
-                        but am now interested in spending most of my life in England.
+                        I am a fan of some of the arts such as music, design, and lieterature. 
+                        I enjoy learning and creating an imaginary world with literature, and 
+                        transfering images and ideas onto paper. 
                         <br><br>
-                        I am bilingual in both English and Filipino yet I can also speak and understand Spanish. 
-                        And on rare occasions Korean!
+                        Growing up in Philippines, Spain and now here in England has enabled me 
+                        to develop my ability in speaking in English, Filipino and a bit of Spanish. 
                     </p>
                 </section>
 

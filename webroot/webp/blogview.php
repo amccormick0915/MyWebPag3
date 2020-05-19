@@ -50,8 +50,8 @@ if( mysqli_num_rows($result) == 0 && ( !isset($_SESSION["loggedin"]) || $_SESSIO
 
 
 //Initialise the vars to be used in the following codes!
-$count = 0;
-$show = false;
+$count = 0; //used for counter for while loop
+$show = false;  //used for showing a horizontal line!
 
 
 //placing all ROWS from the table, inside an array!
@@ -64,8 +64,6 @@ while($data_row = mysqli_fetch_array($result)){
 //For loop that sorts the dates using the IDs!
 for($i = 0; $i < sizeof($rows) - 1; $i++){
     for($k =  0; $k < sizeof($rows) - $i -1; $k++){
-        // echo $rows[$k]['ID'];
-        // echo "<br>" . sizeof($rows) ." and i = ". $i ."      k = " . $k . "<br>";
         if($rows[$k]['ID'] < $rows[$k + 1]['ID']){
             $temp = $rows[$k];
             $rows[$k] = $rows[$k +1];
@@ -74,6 +72,8 @@ for($i = 0; $i < sizeof($rows) - 1; $i++){
     }
 }
 
+
+//adds the horizontal line
 function addHR($counter, $rows, $show, $blog){ 
     if( $counter != 0 && $show ){ 
             $blog = $blog . '<hr style="height:9pt; border-width:0; margin: 1em 0.5em 0; border-radius: 1em; background-color:rgba(245, 123, 107, 0.459)">'; 
@@ -88,11 +88,13 @@ while( $counter < sizeof($rows) ){
     $t = strtotime($row[4]);
 
     //If there is RE-ORDERING of posts!
-    if(isset($_POST['reorderbtn']) && isset($date_chosen) && $date_chosen!= "All" ){
+    if(isset($_POST['reorderbtn']) && (isset($date_chosen) && $date_chosen != "All" )){
 
+            //if the month is the same month as the user chose
             if(date('F', $t) == $date_chosen ){
+
                 $blog = addHR($counter, $rows, $show, $blog);
-                $show = true;
+                $show = true; //placing this here makes sure that only after the first blog post is made, will there be a line
 
                 $blog = $blog . '<br><article class="blog_article">
                             <h4>' . $row[1] .'</h4> 
@@ -101,32 +103,40 @@ while( $counter < sizeof($rows) ){
                                 <div class="indeets">
                                     <p class="usern"> <b>Author:</b> ' .$row[3].'</p>';
 
+
+                //If the user is admin, the delete entry button is added
                 if((isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) && $_SESSION["username"] == "tester1"){
                     $blog = $blog .    '<form method="POST" action="removeentry.php">
                                             <input type="hidden" name="entryID" value="'. $row[2].'">
                                             <button class="removeentry" type="submit"  onClick="javascript:removeentry(this);">Delete Entry</button>
                                         </form>';
                 }
+
                 $blog = $blog .    '</div>
                                         <p class="date">' .date('jS F Y', $t). '</p><br><p class="date">' .date('g:i A e', $t) .'</p>
                                     </div>
                                 </article>';
 
-                                $_SESSION["rowo"] = $row[2];
-                                include "blogComms.php";
+                    // assigning the "row no" the ID of the blog entry!
+                    $_SESSION["rowo"] = $row[2];
+                    include "blogComms.php";
 
-                                $blog = $blog . $blogcomm ;
-            } if( $counter == (sizeof($rows)-1) && empty(trim($blog))){
+                    $blog = $blog . $blogcomm ;
+
+            } else {
+                $show = false;
+            }
+
+            //This shows a message if there are no entries for the mont
+            if( $counter == (sizeof($rows)-1) && empty(trim($blog))){
                 $show = false;
                 $blog = $blog .    '<div class="noEntryForMonth">
                                     <p> No entry for this month! :< </p>
                                     </div>';
-            }else {
-                $show = false;
             }
             
             
-
+    // this else block id is for showing all the posts xD
     } else if(!isset($_POST['reorderbtn']) || $date_chosen == "All"){
         $blog = addHR($counter, $rows, $show, $blog);
         $show = true;
@@ -156,6 +166,7 @@ while( $counter < sizeof($rows) ){
 
                         $blog = $blog . $blogcomm ;
     }
+
     $counter++;
 };
   
@@ -172,10 +183,7 @@ $conn->close();
         <link rel="stylesheet" href="blogviewcss.css" type="text/css" />
     </head>
 
-    <script>          
-        // function  addentry(target){
-        //     location.href='addentry.html';
-        // };
+    <script>   
 
         function clicksubmit(txtID){
             if(document.getElementById("txta" + txtID).value.length == 0 ){
