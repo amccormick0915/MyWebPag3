@@ -5,6 +5,7 @@ session_start();
 
 require_once "config.php";
  
+//gets the value from a hidden input value, that value holds the exact ID of the comment
 $commID = $_POST["commentID"];
   
 $sql = "DELETE FROM comments WHERE comment__ID=" . $commID ."";

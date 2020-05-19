@@ -118,7 +118,7 @@ while( $counter < sizeof($rows) ){
                                     </div>
                                 </article>';
 
-                    // assigning the "row no" the ID of the blog entry!
+                    // assigning the "rowo" the ID of the blog entry!
                     $_SESSION["rowo"] = $row[2];
                     include "blogComms.php";
 
@@ -150,6 +150,8 @@ while( $counter < sizeof($rows) ){
                                 <p class="usern"> <b>Author:</b> ' .$row[3].'</p>';
 
         //If the user logged in is the ADMIN and not a guest user!
+        //Basically a form made for deleting the post! almost exactly the same code for deleting comment
+        //the hidden input value holds the EXACT id of the BLOG POST! Query does the work of finding and deleting that post!
         if((isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) && $_SESSION["username"] == "tester1"){
             $blog = $blog .    '<form method="POST" action="removeentry.php">
                                     <input type="hidden" name="entryID" value="'. $row[2].'">
@@ -187,6 +189,8 @@ $conn->close();
     <script>   
 
         //The reson we used the ID as id values for the comment box!
+        //IT gets the value of the "ADD" btn and then to get the specific textarea of the specific comment box, 
+        // we add "txta" and the BLOG POST ID
         function clicksubmit(txtID){
             if(document.getElementById("txta" + txtID).value.length == 0 ){
                 event.preventDefault();
@@ -196,6 +200,7 @@ $conn->close();
         };
 
         //The id enables to SHOW the correct comment box rather than showing ALL COMMENT BOXES
+        //IT ALSO HIDES THE "ADD COMMENT" buttonof that specific blog post!
         function  addcommentbtn(rowID){
             var x = document.getElementById(rowID); 
                 x.style.display = "block";
@@ -204,6 +209,8 @@ $conn->close();
         };
 
         //fucntion for the BACK bttn
+        //HIDES THE COMMENT BOX and also, if the box was highlighted, because it had an empty comment, it removes the highlight!
+        //It doesnt re-displays the "ADD COMMENT" button
         function  dontaddcommentbtn(rowID, txtID){
             var x = document.getElementById(rowID);
                 x.style.display = "none";
@@ -213,6 +220,7 @@ $conn->close();
                 y.style.display = "block";
         };
 
+        //user chooses to either delete or not delete the comment
         function  removecomm(target){
             var x = confirm("Are you sure you want to delete this comment?");
                 if(!x){

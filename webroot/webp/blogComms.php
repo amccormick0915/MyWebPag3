@@ -27,6 +27,7 @@ if( isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
 // This is used for the javascript, it aids in showing the COMMENT BOX and the "ADD" or "BACK" button later 
 // AND ALSO for using preventDefault() for deleting comments and entries!
 
+//The hidden input holds the ID of the blog post, it is passed on via POST when needed to ADD the blog post ID in the table!
 $blogcomm = $blogcomm  .'<div id="rowID'. $CommentBoxID .'" style="display:none" >
                             <form id="commentform" class="commentform" method="POST" action="addComm.php">
                                 <input type="hidden" name="commentID" value="'. $CommentBoxID .'">
